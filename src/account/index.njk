@@ -1,0 +1,176 @@
+---
+layout: default.njk
+title: Your account
+signed_in: true
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukBackLink({
+  text: "Back to dashboard",
+  href: "/dashboard",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Your account</h1>
+
+<h2 class="govuk-heading-m govuk-!-margin-top-8">Your details</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Sarah Philips"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        text: "07700 900457"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "phone number"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Account number"
+      },
+      value: {
+        text: "0346402"
+      }
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        text: "sarah.phillips@example.com"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "email address"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Password"
+      },
+      value: {
+        text: "••••••••••••••••"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "password"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Business</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Business name"
+      },
+      value: {
+        text: "Café Candide"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "business name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Business address"
+      },
+      value: {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "business address"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Business type"
+      },
+      value: {
+        text: "Restaurant"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "business type"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Tax number"
+      },
+      value: {
+        text: "6388231X"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "tax number"
+          }
+        ]
+      }
+    }
+  ]
+}) }}

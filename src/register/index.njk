@@ -1,0 +1,21 @@
+---
+layout: default.njk
+title: Request an account
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<h1 class="govuk-heading-l">Request a business waste account</h1>
+
+<p class="govuk-body">Before you start, make sure you have:</p>
+
+<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+    <li>Your business tax number</li>
+    <li>Read and understood our <a href="#">business waste pricing structure</a></li>
+</ul>
+
+{{ govukButton({
+  text: "Start",
+  href: "/register/you",
+  isStartButton: true
+}) }}

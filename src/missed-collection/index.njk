@@ -1,0 +1,182 @@
+---
+layout: default.njk
+title: Dashboard
+signed_in: true
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-3">Business waste dashboard</h1>
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    We were unable to collect your dry mixed recycling on Tuesday 14th April. <a class="govuk-notification-banner__link" href="/missed-collection/agreement">Find out why</a>.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html,
+  classes: "govuk-notification-banner--warning"
+}) }}
+
+<h2 class="govuk-heading-m">Quick actions</h2>
+
+<div class="quick-actions govuk-!-margin-bottom-9">
+    <div class="card">
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/dashboard/upcoming" class="card__stretched-link govuk-link">Collection calendar</a></h3>
+        <p class="card__body govuk-body">Check when your next collections are scheduled</p>
+    </div>
+    <div class="card">
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/dashboard/past" class="card__stretched-link govuk-link">Report missed collection</a></h3>
+        <p class="card__body govuk-body">Let us know if you collection has been missed</p>
+    </div>
+    <div class="card">
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/missed-collection/maintenance" class="card__stretched-link govuk-link">Container maintenance</a></h3>
+        <p class="card__body govuk-body">Tell us if your containers have been damaged or need servicing</p>
+    </div>
+</div>
+
+{{ govukTable({
+  caption: "Waste collection agreements",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Reference"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Type"
+    },
+    {
+      text: "Location"
+    },
+    {
+      text: "Last collected"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<a href="/review-quote/agreement" class="govuk-link">0002201</a>'
+      },
+      {
+        html: govukTag({
+          text: "Missed",
+          classes: "govuk-tag--red"
+        })
+      },
+      {
+        text: "Dry mixed recycling"
+      },
+      {
+        text: "Café Candide, 72 Guild Street"
+      },
+      {
+        text: "2 days ago"
+      }
+    ],
+    [
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002063</a>'
+      },
+      {
+        html: govukTag({
+          text: "Active",
+          classes: "govuk-tag--green"
+        })
+      },
+      {
+        text: "General waste"
+      },
+      {
+        text: "Café Candide, 72 Guild Street"
+      },
+      {
+        text: "2 days ago"
+      }
+    ],
+    [
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002041</a>'
+      },
+      {
+        html: govukTag({
+          text: "Active",
+          classes: "govuk-tag--green"
+        })
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        text: "Café Candide, 72 Guild Street"
+      },
+      {
+        text: "4 days ago"
+      }
+    ],
+    [
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0001830</a>'
+      },
+      {
+        html: govukTag({
+          text: "Expired",
+          classes: "govuk-tag--grey"
+        })
+      },
+      {
+        text: "General waste"
+      },
+      {
+        text: "Café Candide, 72 Guild Street"
+      },
+      {
+        text: "–"
+      }
+    ],
+    [
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0001829</a>'
+      },
+      {
+        html: govukTag({
+          text: "Expired",
+          classes: "govuk-tag--grey"
+        })
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        text: "Café Candide, 72 Guild Street"
+      },
+      {
+        text: "–"
+      }
+    ]
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-margin-top-9">Start a new collection agreement</h2>
+<p class="govuk-body">Request a quote for a new collection service at one of your business premises.</p>
+
+{% if has_agreements %}
+{{ govukButton({
+  text: "Start now",
+  href: "/setup/choose-premises"
+}) }}
+{% else %}
+{{ govukButton({
+  text: "Start now",
+  href: "/setup/choose-premises",
+  isStartButton: true
+}) }}
+{% endif %}
+

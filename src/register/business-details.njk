@@ -1,0 +1,54 @@
+---
+layout: default.njk
+title: Business details – Request an account
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  Request a business waste account
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Business details</h1>
+
+{{ govukInput({
+  label: {
+    text: "Registered business name"
+  },
+  id: "business-name",
+  name: "business-name",
+  classes: "govuk-!-width-one-half"
+}) }}
+
+<div class="govuk-form-group govuk-!-width-one-half">
+  <label class="govuk-fieldset__legend" for="business-type">Business type</label>
+
+  <div style="display: flex; gap: 1rem;">
+    <input class="govuk-input" id="business-type" name="business-type" type="text" aria-describedby="business-type-hint">
+    {{ govukButton({
+      text: "Search",
+      href: "/register/business-tax",
+      classes: "govuk-!-margin-bottom-0"
+    }) }}
+  </div>
+
+  <div id="business-type-hint" class="govuk-hint govuk-!-margin-top-2">
+    Enter an SIC/EWC code, or search by keyword (for example ‘restaurant’, ‘school’, ‘charity’, or ‘HMO’)
+  </div>
+</div>
+
+{{ govukInput({
+  label: {
+    text: "Business tax number"
+  },
+  id: "tax-id",
+  name: "tax-id",
+  classes: "govuk-input--width-10"
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/register/business-postcode"
+}) }}

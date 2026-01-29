@@ -1,0 +1,133 @@
+---
+layout: default.njk
+title: Check your answers – New waste collection agreement
+signed_in: true
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  New waste collection agreement
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your answers before submitting your request</h1>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">Once you submit your request, we will review it and send you a quote confirming the collection details and costs. Your new agreement will only start once you accept that quote.</p>
+  </div>
+</div>
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Collection premises"
+      },
+      value: {
+        html: "Café Candide<br>72 Guild Street<br>London<br>SE23 6FH"
+      },
+      actions: {
+        items: [
+          {
+            href: "/setup/choose-premises",
+            text: "Change",
+            visuallyHiddenText: "premises"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Type of waste"
+      },
+      value: {
+        text: "Dry mixed recycling"
+      },
+      actions: {
+        items: [
+          {
+            href: "/setup/container-type",
+            text: "Change",
+            visuallyHiddenText: "waste type"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Containers"
+      },
+      value: {
+        html: "1 &times; 660 litres"
+      },
+      actions: {
+        items: [
+          {
+            href: "/setup/container-type",
+            text: "Change",
+            visuallyHiddenText: "containers"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Contract start date"
+      },
+      value: {
+        text: "1st April 2026"
+      },
+      actions: {
+        items: [
+          {
+            href: "/setup/schedule",
+            text: "Change",
+            visuallyHiddenText: "contract start date"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "First collection"
+      },
+      value: {
+        text: "7th April 2026"
+      },
+      actions: {
+        items: [
+          {
+            href: "/setup/schedule",
+            text: "Change",
+            visuallyHiddenText: "first collection date"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Collection schedule"
+      },
+      value: {
+        text: "Every 2 weeks, on a Tuesday"
+      },
+      actions: {
+        items: [
+          {
+            href: "/setup/schedule",
+            text: "Change",
+            visuallyHiddenText: "collection schedule"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Generate quote",
+  href: "/setup/success"
+}) }}

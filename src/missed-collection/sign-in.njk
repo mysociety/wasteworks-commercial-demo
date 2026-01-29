@@ -1,0 +1,52 @@
+---
+layout: default.njk
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/password-input/macro.njk" import govukPasswordInput %}
+
+{% call govukFieldset({
+  legend: {
+    text: "Sign in to manage your business waste account",
+    classes: "govuk-fieldset__legend--l",
+    isPageHeading: true
+  },
+  classes: "govuk-!-width-one-half"
+}) %}
+
+  {{ govukInput({
+    label: {
+      text: "Account number or email address"
+    },
+    id: "username",
+    name: "username",
+    autocomplete: "username"
+  }) }}
+
+  {{ govukPasswordInput({
+    label: {
+      text: "Password"
+    },
+    id: "password",
+    name: "password",
+    autocomplete: "password"
+  }) }}
+
+{% endcall %}
+
+{{ govukButton({
+  text: "Sign in",
+  href: "/missed-collection"
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-7">Don’t have an account yet?</h2>
+
+<p class="govuk-body govuk-!-width-one-half">If you do not yet have a business waste account, you can request one.</p>
+
+{{ govukButton({
+  text: "Request an account",
+  classes: "govuk-button--secondary",
+  href: "/register"
+}) }}

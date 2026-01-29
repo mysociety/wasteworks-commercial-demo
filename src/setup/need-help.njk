@@ -1,0 +1,42 @@
+---
+layout: default.njk
+title: New waste collection agreement
+signed_in: true
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  New waste collection agreement
+</span>
+
+{{ govukRadios({
+  name: "chosenPremises",
+  fieldset: {
+    legend: {
+      text: "Do you already know your waste collection requirements?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    },
+    classes: "govuk-!-width-two-thirds"
+  },
+  hint: {
+    text: "We provide a free service where we can advise on your business’s waste collection needs, so that you don’t end up over- or under-paying."
+  },
+  items: [
+    {
+      value: "yes",
+      text: "I already know what I need"
+    },
+    {
+      value: "new",
+      text: "I’d like advice on what would suit my business"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/setup/container-type"
+}) }}

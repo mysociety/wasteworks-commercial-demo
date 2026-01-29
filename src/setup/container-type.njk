@@ -1,0 +1,111 @@
+---
+layout: default.njk
+title: New waste collection agreement
+signed_in: true
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  New waste collection agreement
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">What do you need us to collect?</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">Tip: If you want us to collect multiple types of waste under a single agreement, you can add further waste types using the button at the bottom of this form.</p>
+  </div>
+</div>
+
+{{ govukRadios({
+  name: "wasteType",
+  fieldset: {
+    legend: {
+      text: "Type of waste",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "general",
+      text: "General waste"
+    },
+    {
+      value: "recycling",
+      text: "Dry mixed recycling (paper, plastics, cans)"
+    },
+    {
+      value: "glass",
+      text: "Glass"
+    },
+    {
+      value: "food",
+      text: "Food waste"
+    },
+    {
+      value: "green",
+      text: "Green (garden) waste"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "containerSize",
+  fieldset: {
+    legend: {
+      text: "Container size",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "1100",
+      text: "1100 litres (Euro bin)"
+    },
+    {
+      value: "660",
+      text: "660 litres"
+    },
+    {
+      value: "360",
+      text: "360 litres (large wheelie bin)"
+    },
+    {
+      value: "240",
+      text: "240 litres (regular wheelie bin)"
+    },
+    {
+      value: "caddy",
+      text: "23 litres (kitchen caddy)"
+    }
+  ]
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Number of containers to be collected",
+    classes: "govuk-fieldset__legend--m"
+  },
+  classes: "govuk-input--width-2",
+  id: "numberOfContainers",
+  name: "numberOfContainers",
+  suffix: {
+    text: "per collection"
+  },
+  spellcheck: false,
+  value: 1
+}) }}
+
+<div class="button-bar govuk-!-margin-top-9">
+{{ govukButton({
+  text: "Continue",
+  href: "/setup/schedule"
+}) }}
+{{ govukButton({
+  text: "Add another waste type",
+  classes: "govuk-button--secondary"
+}) }}
+</div>

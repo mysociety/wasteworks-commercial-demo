@@ -1,0 +1,32 @@
+---
+layout: default.njk
+title: Account requested
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Business waste account application submitted",
+      html: "Your reference number<br><strong>HDJ2123F</strong>"
+    }) }}
+
+    <p class="govuk-body">We have sent you a confirmation email.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p class="govuk-body">
+      Once your account has been approved, we will email you a link to set your password and access your business waste dashboard.
+    </p>
+
+    {{ govukButton({
+      text: "Done",
+      classes: "govuk-button--secondary govuk-!-margin-top-5",
+      href: "/"
+    }) }}
+
+  </div>
+</div>

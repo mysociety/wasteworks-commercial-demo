@@ -1,0 +1,218 @@
+---
+layout: default.njk
+title: Recent collections
+signed_in: true
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukBackLink({
+  text: "Back to dashboard",
+  href: "/dashboard",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Recent collections</h1>
+
+{{ govukTable({
+  classes: "govuk-table--align-middle",
+  caption: "Location: Café Candide, 72 Guild Street",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Type"
+    },
+    {
+      text: "Reference"
+    },
+    {
+      text: ""
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "10th March"
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002041</a>'
+      },
+      {
+        html: govukButton({
+          text: "Report missed",
+          classes: "govuk-button--warning govuk-button--small govuk-!-margin-bottom-0"
+        })
+      }
+    ],
+    [
+      {
+        text: "5th March"
+      },
+      {
+        html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "General waste"
+      },
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002063</a>'
+      },
+      {
+        html: govukButton({
+          text: "Report missed",
+          classes: "govuk-button--warning govuk-button--small govuk-!-margin-bottom-0"
+        })
+      }
+    ],
+    [
+      {
+        text: "3rd March"
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002041</a>'
+      },
+      {
+        html: govukButton({
+          text: "Report missed",
+          classes: "govuk-button--warning govuk-button--small govuk-!-margin-bottom-0"
+        })
+      }
+    ],
+    [
+      {
+        text: "26th February"
+      },
+      {
+        html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "General waste"
+      },
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002063</a>'
+      },
+      {
+        html: ''
+      }
+    ],
+    [
+      {
+        text: "24th February"
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002041</a>'
+      },
+      {
+        html: ''
+      }
+    ],
+    [
+      {
+        text: "17th February"
+      },
+      {
+        html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "General waste"
+      },
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002063</a>'
+      },
+      {
+        html: ''
+      }
+    ],
+    [
+      {
+        text: "12th February"
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002041</a>'
+      },
+      {
+        html: ''
+      }
+    ],
+    [
+      {
+        text: "10th February"
+      },
+      {
+        html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "General waste"
+      },
+      {
+        html: '<a href="/dashboard/agreement" class="govuk-link">0002063</a>'
+      },
+      {
+        html: ''
+      }
+    ]
+  ]
+}) }}
+
+{{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}

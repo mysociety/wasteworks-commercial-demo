@@ -1,0 +1,54 @@
+$color-societyworks-red: #DC1847;
+$color-societyworks-orange: #ED6C40;
+$color-societyworks-yellow: #FED876;
+$color-societyworks-green: #60BB99;
+$color-societyworks-blue: #0B72D1;
+$color-societyworks-offwhite: #F7F6F5;
+
+$govuk-brand-colour: $color-societyworks-green;
+
+$govuk-new-typography-scale: true;
+$govuk-font-family: Lato, sans-serif;
+
+@import "govuk-frontend/dist/govuk/index";
+
+@import "site-header.scss";
+@import "quick-actions.scss";
+@import "card.scss";
+@import "button-bar.scss";
+@import "inline-inputs.scss";
+
+.app-content {
+  padding-bottom: $govuk-gutter;
+}
+
+.govuk-service-navigation__list {
+  justify-content: flex-end;
+}
+
+.govuk-table--align-middle {
+  .govuk-table__header,
+  .govuk-table__cell {
+    vertical-align: middle;
+  }
+}
+
+.govuk-button--small {
+  @include govuk-font($size: 16, $line-height: 1);
+  padding: govuk-spacing(1);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.width-0 {
+  width: 0 !important;
+}
+
+.govuk-notification-banner--warning {
+  border-color: $color-societyworks-red;
+  background-color: $color-societyworks-red;
+}

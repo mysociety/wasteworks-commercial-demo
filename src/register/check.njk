@@ -1,0 +1,153 @@
+---
+layout: default.njk
+title: Check your answers – Request an account
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  Request a business waste account
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your answers before sending your application</h1>
+
+<h2 class="govuk-heading-m">Your details</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Sarah Philips"
+      },
+      actions: {
+        items: [
+          {
+            href: "/register/you",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        text: "07700 900457"
+      },
+      actions: {
+        items: [
+          {
+            href: "/register/you",
+            text: "Change",
+            visuallyHiddenText: "phone number"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        text: "sarah.phillips@example.com"
+      },
+      actions: {
+        items: [
+          {
+            href: "/register/you",
+            text: "Change",
+            visuallyHiddenText: "email address"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Business details</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Business name"
+      },
+      value: {
+        text: "Café Candide"
+      },
+      actions: {
+        items: [
+          {
+            href: "/register/business-details",
+            text: "Change",
+            visuallyHiddenText: "business name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Business type"
+      },
+      value: {
+        text: "Restaurant"
+      },
+      actions: {
+        items: [
+          {
+            href: "/register/business-details",
+            text: "Change",
+            visuallyHiddenText: "business type"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Tax number"
+      },
+      value: {
+        text: "6388231X"
+      },
+      actions: {
+        items: [
+          {
+            href: "/register/business-details",
+            text: "Change",
+            visuallyHiddenText: "tax number"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Business address"
+      },
+      value: {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      actions: {
+        items: [
+          {
+            href: "/register/business-address",
+            text: "Change",
+            visuallyHiddenText: "business address"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Submit request",
+  href: "/register/success"
+}) }}
