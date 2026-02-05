@@ -1,0 +1,137 @@
+---
+layout: default.njk
+title: Check your request – New waste collection agreement
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  New waste collection agreement
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your request before submitting</h1>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">Once you submit your request, we will review it and send you a quote confirming the collection details and costs. Your new agreement can only start once you accept that quote.</p>
+  </div>
+</div>
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Collection premises"
+      },
+      value: {
+        html: '<div data-st8-key="business-name">Café Candide</div>' +
+              '<div data-st8-key="collection-address-line-1">72 Guild Street</div>' + 
+              '<div data-st8-key="collection-address-line-2"></div>' + 
+              '<div data-st8-key="collection-address-town">London</div>' + 
+              '<div data-st8-key="collection-address-county"></div>' + 
+              '<div data-st8-key="collection-postcode">SE23 6FH</div>'
+      },
+      actions: {
+        items: [
+          {
+            href: "/agreement/new/choose-premises",
+            text: "Change",
+            visuallyHiddenText: "premises"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Type of waste"
+      },
+      value: {
+        html: '<span data-st8-key="waste-type">Dry mixed recycling</span>'
+      },
+      actions: {
+        items: [
+          {
+            href: "/agreement/new/container-type",
+            text: "Change",
+            visuallyHiddenText: "waste type"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Containers"
+      },
+      value: {
+        html: '<span data-st8-key="container-count">1</span> &times; <span data-st8-key="container-type">1100 litres (Euro bin)</span>'
+      },
+      actions: {
+        items: [
+          {
+            href: "/agreement/new/container-type",
+            text: "Change",
+            visuallyHiddenText: "containers"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "First collection"
+      },
+      value: {
+        html: '<span class="js-first-collection-date">7th April 2026</span>'
+      },
+      actions: {
+        items: [
+          {
+            href: "/agreement/new/schedule",
+            text: "Change",
+            visuallyHiddenText: "first collection date"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Collection schedule"
+      },
+      value: {
+        html: 'Every <span data-st8-key="collection-frequency">2</span> <span data-st8-key="collection-period">weeks</span>, on a <span data-st8-key="collection-day">Tuesday</span>'
+      },
+      actions: {
+        items: [
+          {
+            href: "/agreement/new/schedule",
+            text: "Change",
+            visuallyHiddenText: "collection schedule"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Contract start date"
+      },
+      value: {
+        html: '<span class="js-start-date">1st April 2026</span>'
+      },
+      actions: {
+        items: [
+          {
+            href: "/agreement/new/schedule",
+            text: "Change",
+            visuallyHiddenText: "contract start date"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Generate quote",
+  href: "/agreement/new/success"
+}) }}

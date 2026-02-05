@@ -2,22 +2,34 @@
 layout: backstage.njk
 ---
 
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
 <h1 class="govuk-heading-l">Demo starting points</h1>
 
 <ul class="govuk-list">
   <li>
-    <a class="govuk-link" href="/register">User registration</a>
+    <a class="govuk-link" href="/register" data-start-scenario="register">Request a quote</a>
   </li>
   <li>
-    <a class="govuk-link" href="/setup">Setting up first collection</a>
+    <a class="govuk-link" href="/dashboard" data-start-scenario="review-quote">Dashboard: review first quote</a>
   </li>
   <li>
-    <a class="govuk-link" href="/review-quote">Reviewing first quote</a>
+    <a class="govuk-link" href="/dashboard/sign-in" data-start-scenario="established">Dashboard</a>
   </li>
   <li>
-    <a class="govuk-link" href="/dashboard/sign-in">Business dashboard</a>
-  </li>
-  <li>
-    <a class="govuk-link" href="/missed-collection/sign-in">Missed collection</a>
+    <a class="govuk-link" href="/dashboard" data-start-scenario="failed-collection">Dashboard: failed collection</a>
   </li>
 </ul>
+
+<details class="govuk-details govuk-!-margin-top-9">
+  <summary class="govuk-details__summary">Session data</summary>
+  {{ govukTable({
+    classes: "js-scenario-data",
+    head: [
+      { text: "key" },
+      { text: "value" }
+    ]
+  }) }}
+</details>
+
+<button class="govuk-button govuk-button--small govuk-button--warning js-clear-scenario">Clear session data</button>

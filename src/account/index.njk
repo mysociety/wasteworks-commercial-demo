@@ -1,10 +1,10 @@
 ---
 layout: default.njk
 title: Your account
-signed_in: true
 ---
 
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {{ govukBackLink({
@@ -99,17 +99,28 @@ signed_in: true
   ]
 }) }}
 
-<h2 class="govuk-heading-m govuk-!-margin-top-9">Business</h2>
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Businesses you can manage</h2>
+
+<div class="govuk-tabs govuk-!-margin-bottom-3" data-module="govuk-tabs" data-govuk-tabs-init="">
+  <ul class="govuk-tabs__list" role="tablist">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+      Café Candide Ltd
+    </li>
+    <li class="govuk-tabs__list-item" role="presentation">
+      + New business
+    </li>
+  </ul>
+</div>
 
 {{ govukSummaryList({
-  classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
+  classes: "govuk-!-width-two-thirds",
   rows: [
     {
       key: {
         text: "Business name"
       },
       value: {
-        text: "Café Candide"
+        text: "Café Candide Ltd"
       },
       actions: {
         items: [
@@ -173,4 +184,9 @@ signed_in: true
       }
     }
   ]
+}) }}
+
+{{ govukButton({
+  text: "Invite someone to manage this business",
+  classes: "govuk-button--secondary"
 }) }}

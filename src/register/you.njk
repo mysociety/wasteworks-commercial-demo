@@ -6,6 +6,7 @@ title: Your details – Request an account
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/password-input/macro.njk" import govukPasswordInput %}
 
 <span class="govuk-caption-m govuk-!-margin-bottom-3">
   Request a business waste account
@@ -20,22 +21,20 @@ title: Your details – Request an account
   classes: "govuk-!-width-one-half"
 }) %}
 
-  {{ govukInput({
-    label: {
-      text: "First name"
-    },
-    id: "first-name",
-    name: "first-name",
-    autocomplete: "given-name"
-  }) }}
+  <p class="govuk-body readable">We’ll use these details to give you access to your business waste dashboard.</p>
+
+  <p class="govuk-body readable govuk-!-margin-bottom-6">You will be able to invite other partners or employees in your business to have access to the dashboard later.</p>
 
   {{ govukInput({
     label: {
-      text: "Surname"
+      text: "Name"
     },
-    id: "surname",
-    name: "surname",
-    autocomplete: "family-name"
+    id: "name",
+    name: "name",
+    autocomplete: "name",
+    attributes: {
+      "data-st8-key": "user-name"
+    }
   }) }}
 
   {{ govukInput({
@@ -45,7 +44,10 @@ title: Your details – Request an account
     id: "phone",
     name: "phone",
     type: "tel",
-    autocomplete: "tel"
+    autocomplete: "tel",
+    attributes: {
+      "data-st8-key": "user-phone"
+    }
   }) }}
 
   {{ govukInput({
@@ -54,12 +56,25 @@ title: Your details – Request an account
     },
     id: "email",
     name: "email",
-    autocomplete: "email"
+    autocomplete: "email",
+    attributes: {
+      "data-st8-key": "user-email"
+    }
+  }) }}
+
+  {{ govukPasswordInput({
+    label: {
+      text: "Password"
+    },
+    id: "password-input",
+    name: "password",
+    value: "wasteworks is awesome",
+    autocomplete: "new-password"
   }) }}
 
 {% endcall %}
 
 {{ govukButton({
   text: "Continue",
-  href: "/register/business-details"
+  href: "/register/business-id"
 }) }}

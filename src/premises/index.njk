@@ -1,0 +1,97 @@
+---
+layout: default.njk
+title: Your premises
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukBackLink({
+  text: "Back to dashboard",
+  href: "/dashboard",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Your premises</h1>
+
+<div class="govuk-tabs govuk-!-margin-bottom-3" data-module="govuk-tabs" data-govuk-tabs-init="">
+  <ul class="govuk-tabs__list" role="tablist">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+      Café Candide Ltd
+    </li>
+    <li class="govuk-tabs__list-item" role="presentation">
+      + New business
+    </li>
+  </ul>
+</div>
+
+<h2 class="govuk-heading-m govuk-!-margin-top-6">Café Candide, 72 Guild Street</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "Café Candide<br>72 Guild Street<br>London<br>SE23 6FH"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Bin location"
+      },
+      value: {
+        text: "Alleyway beside car park"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "bin location"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Supporting documents"
+      },
+      value: {
+        text: "—"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "supporting documents"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<div class="button-bar govuk-!-margin-top-6">
+{{ govukButton({
+  text: "Forget this premises",
+  classes: "govuk-button--warning"
+}) }}
+{{ govukButton({
+  text: "Add another premises",
+  classes: "govuk-button--secondary"
+}) }}
+</div>

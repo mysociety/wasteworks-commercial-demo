@@ -1,0 +1,56 @@
+---
+layout: default.njk
+title: Purchase a one-off service
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukBackLink({
+  text: "Back to dashboard",
+  href: "/dashboard",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Purchase a one-off service</h1>
+
+<p class="govuk-body readable">We offer a number of one-off services which can be purchased independently of any ongoing waste agreements.</p>
+
+<p class="govuk-body readable">Payments can be made by credit or debit card, or your phone’s wallet.</p>
+
+<div style="display: flex; gap: 0.5rem; flex-wrap: wrap;" class="govuk-!-margin-bottom-9">
+  <img src="/assets/img/visa.png" width="64" height="40" alt="visa">
+  <img src="/assets/img/mastercard.png" width="64" height="40" alt="mastercard">
+  <img src="/assets/img/maestro.png" width="64" height="40" alt="maestro">
+  <img src="/assets/img/apple-pay.png" width="62" height="40" alt="apple-pay">
+  <img src="/assets/img/google-pay.png" width="62" height="40" alt="google-pay">
+</div>
+
+{{ govukRadios({
+  name: "wasteType",
+  fieldset: {
+    legend: {
+      text: "What would you like to purchase?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      text: "Replacement waste sacks (pack of 50)"
+    },
+    {
+      text: "Bulky waste collection"
+    },
+    {
+      text: "Business premises clearance"
+    },
+    {
+      text: "Skip hire"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

@@ -1,0 +1,70 @@
+---
+layout: default.njk
+title: Report a problem
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukBackLink({
+  text: "Back to containers",
+  href: "/containers",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Report a problem</h1>
+
+<div style="display: grid; grid-template-columns: 5rem auto; gap: 2rem; align-items: center; max-width: 40rem;" class="govuk-!-margin-bottom-8">
+  <img src="/assets/img/large-communal-recycling-bin.svg" width="760" height="778" alt="" style="margin-top: 0.5rem;">
+  {{ govukSummaryList({
+    classes: "govuk-!-margin-bottom-0",
+    rows: [
+      {
+        key: {
+          text: "Container"
+        },
+        value: {
+          text: "1100 litre (Euro bin), blue with green lid "
+        }
+      },
+      {
+        key: {
+          text: "Location"
+        },
+        value: {
+          html: "Café Candide, 72 Guild Street"
+        }
+      }
+    ]
+  }) }}
+</div>
+
+{{ govukRadios({
+  name: "problem-type",
+  fieldset: {
+    legend: {
+      text: "What is the problem with this container?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      text: "Container damaged"
+    },
+    {
+      text: "Graffiti"
+    },
+    {
+      text: "Cleansing required"
+    },
+    {
+      text: "Other"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

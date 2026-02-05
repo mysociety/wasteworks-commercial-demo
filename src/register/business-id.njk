@@ -1,0 +1,32 @@
+---
+layout: default.njk
+title: Business details – Request an account
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  Request a business waste account
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Business details</h1>
+
+<p class="govuk-body readable">We’ll use your company registration number (also known as your Companies House number) to automatically fetch your business details.</p>
+
+{{ govukInput({
+  label: {
+    text: "Company registration number"
+  },
+  id: "company-id",
+  name: "company-id",
+  classes: "govuk-input--width-10",
+  attributes: {
+    "data-st8-key": "business-id"
+  }
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/register/business-details"
+}) }}
