@@ -48,7 +48,15 @@ img {
   width: 0 !important;
 }
 
+.readable {
+  max-width: 30em;
+}
+
 .govuk-notification-banner--warning {
   border-color: $color-societyworks-red;
   background-color: $color-societyworks-red;
+}
+
+.js-signed-in-navigation.hidden {
+  display: none;
 }

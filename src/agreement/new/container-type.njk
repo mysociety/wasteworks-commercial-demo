@@ -1,0 +1,168 @@
+---
+layout: default.njk
+title: New waste collection agreement
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  New waste collection agreement
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">What do you need us to collect?</h1>
+
+<p class="govuk-body readable">Tip: If you want us to collect multiple types of waste under a single agreement, you can add further waste types using the button at the bottom of this form.</p>
+
+{{ govukRadios({
+  name: "wasteType",
+  fieldset: {
+    legend: {
+      text: "Type of waste",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "General waste",
+      text: "General waste",
+      attributes: {
+        "data-st8-key": "waste-type"
+      }
+    },
+    {
+      value: "Dry mixed recycling",
+      text: "Dry mixed recycling (paper, plastics, cans)",
+      attributes: {
+        "data-st8-key": "waste-type"
+      }
+    },
+    {
+      value: "Glass",
+      text: "Glass",
+      attributes: {
+        "data-st8-key": "waste-type"
+      }
+    },
+    {
+      value: "Food waste",
+      text: "Food waste",
+      attributes: {
+        "data-st8-key": "waste-type"
+      }
+    },
+    {
+      value: "Green (garden) waste",
+      text: "Green (garden) waste",
+      attributes: {
+        "data-st8-key": "waste-type"
+      }
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "containerSize",
+  fieldset: {
+    legend: {
+      text: "Container size",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "1100 litres",
+      text: "1100 litres (Euro bin)",
+      attributes: {
+        "data-st8-key": "container-type"
+      }
+    },
+    {
+      value: "660 litres",
+      text: "660 litres",
+      attributes: {
+        "data-st8-key": "container-type"
+      }
+    },
+    {
+      value: "360 litres",
+      text: "360 litres (large wheelie bin)",
+      attributes: {
+        "data-st8-key": "container-type"
+      }
+    },
+    {
+      value: "240 litres",
+      text: "240 litres (regular wheelie bin)",
+      attributes: {
+        "data-st8-key": "container-type"
+      }
+    },
+    {
+      value: "23 litres",
+      text: "23 litres (kitchen caddy)",
+      attributes: {
+        "data-st8-key": "container-type"
+      }
+    }
+  ]
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Number of containers to be collected",
+    classes: "govuk-fieldset__legend--m"
+  },
+  classes: "govuk-input--width-2",
+  id: "numberOfContainers",
+  name: "numberOfContainers",
+  suffix: {
+    text: "per collection"
+  },
+  spellcheck: false,
+  value: 1,
+  attributes: {
+    "data-st8-key": "container-count"
+  }
+}) }}
+
+{{ govukRadios({
+  name: "containers-owned",
+  fieldset: {
+    legend: {
+      text: "Do you already own these containers?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes, I own these containers",
+      attributes: {
+        "data-st8-key": "container-owned"
+      }
+    },
+    {
+      value: "no",
+      text: "No, I need to hire containers",
+      attributes: {
+        "data-st8-key": "container-owned"
+      },
+      hint: {
+        text: "A rental price for the containers will be included in your quote."
+      }
+    }
+  ]
+}) }}
+
+<div class="button-bar govuk-!-margin-top-9">
+{{ govukButton({
+  text: "Continue",
+  href: "/agreement/new/schedule"
+}) }}
+{{ govukButton({
+  text: "Add another waste type",
+  classes: "govuk-button--secondary"
+}) }}
+</div>

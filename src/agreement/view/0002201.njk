@@ -1,0 +1,169 @@
+---
+layout: default.njk
+title: Dry mixed recycling 0002201
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+{{ govukBackLink({
+  text: "Back to dashboard",
+  href: "/dashboard",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Waste collection agreement</h1>
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    You have received a quote for review.
+    <a class="govuk-notification-banner__link" href="/agreement/review/invoice">Review quote to begin collections</a>.
+  </p>
+{% endset %}
+
+<div data-st8-key="has-agreement-for-review" data-st8-show-if-set>
+  {{ govukNotificationBanner({
+    html: html,
+    classes: "govuk-notification-banner--warning"
+  }) }}
+</div>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Reference"
+      },
+      value: {
+        text: "0002201"
+      }
+    },
+    {
+      key: {
+        text: "Status"
+      },
+      value: {
+        html: govukTag({
+          text: "Awaiting review",
+          classes: "govuk-tag--red",
+          attributes: {
+            "data-st8-key": "has-agreement-for-review",
+            "data-st8-show-if-set": true
+          }
+        }) + ' ' + govukTag({
+          text: "Active",
+          classes: "govuk-tag--green",
+          attributes: {
+            "data-st8-key": "has-agreement-for-review",
+            "data-st8-hide-if-set": true
+          }
+        })
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Waste Transfer Notification</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Valid from"
+      },
+      value: {
+        html: '<span data-st8-key="has-agreement-for-review" data-st8-show-if-set>–</span> ' + 
+              '<span data-st8-key="has-agreement-for-review" data-st8-hide-if-set>1st April 2026</span> '
+      }
+    },
+    {
+      key: {
+        text: "Valid until"
+      },
+      value: {
+        html: '<span data-st8-key="has-agreement-for-review" data-st8-show-if-set>–</span> ' + 
+              '<span data-st8-key="has-agreement-for-review" data-st8-hide-if-set>31st March 2027</span> '
+      }
+    },
+    {
+      key: {
+        text: "Current note"
+      },
+      value: {
+        html: '<span data-st8-key="has-agreement-for-review" data-st8-show-if-set>–</span> ' + 
+              '<a href="#" data-st8-key="has-agreement-for-review" data-st8-hide-if-set>0002041-WTN.pdf</a> '
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Collections in this agreement</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Type"
+      },
+      value: {
+        text: "Dry mixed recycling"
+      }
+    },
+    {
+      key: {
+        text: "Location"
+      },
+      value: {
+        html: "Café Candide<br>72 Guild Street<br>London<br>SE23 6FH"
+      }
+    },
+    {
+      key: {
+        text: "Container"
+      },
+      value: {
+        html: '1 &times; 1100 litre (Euro bin), blue with green lid <img src="/assets/img/large-communal-recycling-bin.svg" width="760" height="778" alt="" style="margin-top: 0.5rem; max-width: 5rem;">'
+      }
+    },
+    {
+      key: {
+        text: "Collection schedule"
+      },
+      value: {
+        text: "Every week, on Tuesday"
+      }
+    },
+    {
+      key: {
+        html: '<span data-st8-key="has-agreement-for-review" data-st8-show-if-set>First</span> ' + 
+              '<span data-st8-key="has-agreement-for-review" data-st8-hide-if-set>Next</span> ' + 
+              'collection'
+      },
+      value: {
+        text: "Tuesday 7th April 2026"
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9" data-st8-key="has-agreement-for-review" data-st8-hide-if-set>Quick actions</h2>
+
+<div class="quick-actions govuk-!-margin-bottom-9" data-st8-key="has-agreement-for-review" data-st8-hide-if-set>
+    <div class="card">
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/agreement/amend" class="card__stretched-link govuk-link">Request a temporary amendment</a></h3>
+        <p class="card__body govuk-body">Make a short term adjustment to your collections</p>
+    </div>
+    <div class="card">
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2">Change this agreement</h3>
+        <p class="card__body govuk-body">Permanently change the type or quantity of waste you want us to collect</p>
+    </div>
+    <div class="card">
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2">Cancel this agreement</h3>
+        <p class="card__body govuk-body">Permanently end this collection agreement</p>
+    </div>
+</div>

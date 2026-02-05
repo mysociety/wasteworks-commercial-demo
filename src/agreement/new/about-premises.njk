@@ -1,0 +1,61 @@
+---
+layout: default.njk
+title: Add premises – New waste collection agreement
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  New waste collection agreement
+</span>
+
+{% call govukFieldset({
+  legend: {
+    text: "How should we access your bins?",
+    isPageHeading: true,
+    classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
+  }
+}) %}
+
+{{ govukTextarea({
+  formGroup: {
+    classes: "govuk-!-width-two-thirds"
+  },
+  label: {
+    text: "Directions and access information"
+  },
+  hint: {
+    text: "For example, where can we find your bins? Will we need a code for access?"
+  },
+  id: "directions-text",
+  name: "directions-text",
+  spellcheck: false,
+  attributes: {
+    "data-st8-key": "directions-text"
+  }
+}) }}
+
+{{ govukFileUpload({
+  formGroup: {
+    classes: "govuk-!-width-two-thirds"
+  },
+  label: {
+    text: "Supporting documents or photos"
+  },
+  hint: {
+    text: "If necessary, you can provide a site plan or photos of your bin location."
+  },
+  id: "directions-files",
+  name: "directions-files",
+  javascript: true
+}) }}
+
+{% endcall %}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/agreement/new/need-help"
+}) }}

@@ -1,0 +1,140 @@
+---
+layout: default.njk
+title: New waste collection agreement
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  New waste collection agreement
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">When should we collect?</h1>
+
+<p class="govuk-body readable">Provide an approximate date for your first collection, and schedule for your following collections. We will do our best to accommodate your requests, and will call you if we need to discuss other options.</p>
+
+{{ govukDateInput({
+  id: "first-collection-date",
+  namePrefix: "first-collection-date",
+  classes: "st8ify",
+  fieldset: {
+    legend: {
+      text: "First collection date",
+      classes: "govuk-fieldset__legend--m"
+    },
+    classes: "govuk-!-margin-top-6"
+  }
+}) }}
+
+{% call govukFieldset({
+  legend: {
+    text: "Collection schedule",
+    classes: "govuk-fieldset__legend--m"
+  }
+}) %}
+
+  <div class="inline-inputs">
+    <span class="govuk-body">Repeat every</span>
+
+    {{ govukSelect({
+      id: "frequency",
+      name: "frequency",
+      attributes: {
+        "data-st8-key": "collection-frequency"
+      },
+      items: [
+        {
+          value: "1",
+          text: "1"
+        },
+        {
+          value: "2",
+          text: "2",
+          selected: true
+        },
+        {
+          value: "4",
+          text: "4"
+        }
+      ]
+    }) }}
+
+    {{ govukSelect({
+      id: "period",
+      name: "period",
+      attributes: {
+        "data-st8-key": "collection-period"
+      },
+      items: [
+        {
+          value: "weeks",
+          text: "weeks",
+          selected: true
+        },
+        {
+          value: "months",
+          text: "months"
+        }
+      ]
+    }) }}
+
+    <span class="govuk-body">on a</span>
+
+    {{ govukSelect({
+      id: "day",
+      name: "day",
+      attributes: {
+        "data-st8-key": "collection-day"
+      },
+      items: [
+        {
+          value: "Monday",
+          text: "Monday"
+        },
+        {
+          value: "Tuesday",
+          text: "Tuesday",
+          selected: true
+        },
+        {
+          value: "Wednesday",
+          text: "Wednesday"
+        },
+        {
+          value: "Thursday",
+          text: "Thursday"
+        },
+        {
+          value: "Friday",
+          text: "Friday"
+        }
+      ]
+    }) }}
+  </div>
+
+{% endcall %}
+
+{{ govukDateInput({
+  id: "start-date",
+  namePrefix: "start-date",
+  classes: "st8ify",
+  fieldset: {
+    legend: {
+      text: "Contract start date",
+      classes: "govuk-fieldset__legend--m"
+    },
+    classes: "govuk-!-margin-top-9"
+  },
+  hint: {
+    "text": "We will invoice you monthly from this date."
+  }
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/agreement/new/check",
+  classes: "govuk-!-margin-top-6"
+}) }}

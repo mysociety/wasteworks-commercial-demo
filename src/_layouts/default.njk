@@ -22,23 +22,28 @@
       </div>
     </header>
 
-  {% if signed_in %}
-    {% set navigationLinks = [
-      {
-        href: "/account",
-        text: "Your account"
-      },
-      {
-        href: "/",
-        text: "Sign out"
-      }
-    ] %}
-  {% endif %}
-
     {{ govukServiceNavigation({
       serviceName: "Business waste collection",
       serviceUrl: "/",
-      navigation: navigationLinks
+      navigation: [
+        {
+          href: "/dashboard",
+          text: "Dashboard"
+        },
+        {
+          href: "/premises",
+          text: "Premises"
+        },
+        {
+          href: "/account",
+          text: "Account"
+        },
+        {
+          href: "/",
+          text: "Sign out"
+        }
+      ],
+      navigationClasses: 'js-signed-in-navigation hidden'
     }) }}
 
     <div class="govuk-width-container">
@@ -53,10 +58,9 @@
       </div>
     </footer>
 
+    <script type="module" src="/assets/js/jquery-4.0.0.slim.min.js"></script>
+    <script type="module" src="/assets/js/stateful.min.js"></script>
     <script type="module" src="/assets/js/govuk-frontend.min.js"></script>
-    <script type="module">
-      import { initAll } from '/assets/js/govuk-frontend.min.js'
-      initAll()
-    </script>
+    <script type="module" src="/assets/js/main.js"></script>
   </body>
 </html>

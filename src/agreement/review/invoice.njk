@@ -1,0 +1,83 @@
+---
+layout: default.njk
+title: New waste collection agreement
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  New waste collection agreement
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Review and accept quote</h1>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Collection"
+      },
+      value: {
+        text: "Dry mixed recycling, 1100 litres, weekly"
+      }
+    },
+    {
+      key: {
+        text: "Up-front cost"
+      },
+      value: {
+        text: "£154"
+      }
+    },
+    {
+      key: {
+        text: "Monthly cost"
+      },
+      value: {
+        text: "£30 per month"
+      }
+    },
+    {
+      key: {
+        text: "Contract term"
+      },
+      value: {
+        text: "Until cancelled"
+      }
+    },
+    {
+      key: {
+        text: "Invoice"
+      },
+      value: {
+        html: '<a href="#" class="govuk-link">View invoice PDF</a>'
+      }
+    }
+  ]
+}) }}
+
+
+{{ govukCheckboxes({
+  name: "accept",
+  classes: "govuk-!-width-two-thirds",
+  items: [
+    {
+      value: "accept",
+      text: "I confirm that I am authorised to accept this invoice on behalf of the named business, and have understood that I will be entering into an ongoing contract with the stated recurring monthly fee."
+    }
+  ]
+}) }}
+
+<div class="button-bar">
+  {{ govukButton({
+    text: "Accept quote",
+    href: "/agreement/review/wtn"
+  }) }}
+  {{ govukButton({
+    text: "Reject invoice",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>

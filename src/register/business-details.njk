@@ -4,8 +4,8 @@ title: Business details – Request an account
 ---
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 <span class="govuk-caption-m govuk-!-margin-bottom-3">
   Request a business waste account
@@ -13,42 +13,58 @@ title: Business details – Request an account
 
 <h1 class="govuk-heading-l govuk-!-margin-bottom-6">Business details</h1>
 
-{{ govukInput({
-  label: {
-    text: "Registered business name"
-  },
-  id: "business-name",
-  name: "business-name",
-  classes: "govuk-!-width-one-half"
+<h2 class="govuk-heading-m">Is this the right business?</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Registration number"
+      },
+      value: {
+        html: '<span data-st8-key="business-id">90636040</span>'
+      }
+    },
+    {
+      key: {
+        text: "Registered name"
+      },
+      value: {
+        html: '<span data-st8-key="business-name">Café Candide Ltd</span>'
+      }
+    },
+    {
+      key: {
+        text: "Registered address"
+      },
+      value: {
+        html: '<div data-st8-key="business-address-line-1">72 Guild Street</div>' + 
+              '<div data-st8-key="business-address-line-2"></div>' + 
+              '<div data-st8-key="business-address-town">London</div>' + 
+              '<div data-st8-key="business-address-county"></div>' + 
+              '<div data-st8-key="business-postcode">SE23 6FH</div>'
+      }
+    },
+    {
+      key: {
+        text: "Type (SIC)"
+      },
+      value: {
+        html: '<span data-st8-key="business-type">56102 Unlicensed restaurants and cafes</span>'
+      }
+    }
+  ]
 }) }}
 
-<div class="govuk-form-group govuk-!-width-one-half">
-  <label class="govuk-fieldset__legend" for="business-type">Business type</label>
-
-  <div style="display: flex; gap: 1rem;">
-    <input class="govuk-input" id="business-type" name="business-type" type="text" aria-describedby="business-type-hint">
-    {{ govukButton({
-      text: "Search",
-      href: "/register/business-tax",
-      classes: "govuk-!-margin-bottom-0"
-    }) }}
-  </div>
-
-  <div id="business-type-hint" class="govuk-hint govuk-!-margin-top-2">
-    Enter an SIC/EWC code, or search by keyword (for example ‘restaurant’, ‘school’, ‘charity’, or ‘HMO’)
-  </div>
+<div class="button-bar">
+  {{ govukButton({
+    text: "Yes, continue",
+    href: "/register/business-employees"
+  }) }}
+  {{ govukButton({
+    text: "No, go back",
+    href: "/register/business-id",
+    classes: "govuk-button--secondary"
+  }) }}
 </div>
-
-{{ govukInput({
-  label: {
-    text: "Business tax number"
-  },
-  id: "tax-id",
-  name: "tax-id",
-  classes: "govuk-input--width-10"
-}) }}
-
-{{ govukButton({
-  text: "Continue",
-  href: "/register/business-postcode"
-}) }}

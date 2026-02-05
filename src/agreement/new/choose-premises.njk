@@ -1,0 +1,45 @@
+---
+layout: default.njk
+title: New waste collection agreement
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  New waste collection agreement
+</span>
+
+{{ govukRadios({
+  name: "chosenPremises",
+  fieldset: {
+    legend: {
+      text: "Where should the waste be collected from?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "We have pre-filled your registered business address, but you can request collection from a new address if you like.",
+    classes: "govuk-!-margin-top-3 govuk-!-margin-bottom-6 readable"
+  },
+  items: [
+    {
+      value: "existing",
+      html: '<div data-st8-key="business-address-line-1">72 Guild Street</div>' + 
+            '<div data-st8-key="business-address-line-2"></div>' + 
+            '<div data-st8-key="business-address-town">London</div>' + 
+            '<div data-st8-key="business-address-county"></div>' + 
+            '<div data-st8-key="business-postcode">SE23 6FH</div>'
+    },
+    {
+      value: "new",
+      text: "New address"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/agreement/new/add-premises"
+}) }}

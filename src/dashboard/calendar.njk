@@ -1,0 +1,293 @@
+---
+layout: default.njk
+title: Collection calendar
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+{{ govukBackLink({
+  text: "Back to dashboard",
+  href: "/dashboard",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Collection calendar</h1>
+
+<div class="govuk-tabs govuk-!-margin-bottom-6" data-module="govuk-tabs" data-govuk-tabs-init="">
+  <ul class="govuk-tabs__list" role="tablist">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+      Café Candide, 72 Guild Street
+    </li>
+    <li class="govuk-tabs__list-item" role="presentation">
+      + New premises
+    </li>
+  </ul>
+</div>
+
+{{ govukTable({
+  classes: "govuk-table--align-middle",
+  caption: "Recent collections",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Type"
+    },
+    {
+      text: "Volume"
+    },
+    {
+      text: "Reference"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "7th April"
+      },
+      {
+        html: govukTag({
+          text: "Collected",
+          classes: "govuk-tag--green"
+        })
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        text: "180 litres"
+      },
+      {
+        html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
+      }
+    ],
+    [
+      {
+        text: "9th April"
+      },
+      {
+        html: govukTag({
+          text: "Collected",
+          classes: "govuk-tag--green"
+        })
+      },
+      {
+        html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "General waste"
+      },
+      {
+        text: "615 litres"
+      },
+      {
+        html: '0002063'
+      }
+    ],
+    [
+      {
+        text: "14th April"
+      },
+      {
+        html: govukTag({
+          text: "Failed",
+          classes: "govuk-tag--red",
+          attributes: {
+            "data-st8-key": "has-failed-collection",
+            "data-st8-show-if-set": true
+          }
+        }) + ' ' + govukTag({
+          text: "Collected",
+          classes: "govuk-tag--green",
+          attributes: {
+            "data-st8-key": "has-failed-collection",
+            "data-st8-hide-if-set": true
+          }
+        })
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        text: "172 litres"
+      },
+      {
+        html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
+      }
+    ],
+    [
+      {
+        text: "16th April"
+      },
+      {
+        html: govukTag({
+          text: "Collected",
+          classes: "govuk-tag--green"
+        })
+      },
+      {
+        html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "General waste"
+      },
+      {
+        text: "782 litres"
+      },
+      {
+        html: '0002063'
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+  classes: "govuk-table--align-middle govuk-!-margin-top-9",
+  caption: "Upcoming collections",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Type"
+    },
+    {
+      text: "Frequency"
+    },
+    {
+      text: "Reference"
+    },
+    {
+      text: ""
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "21st April"
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        text: "Every Tuesday"
+      },
+      {
+        html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
+      },
+      {
+        html: govukButton({
+          text: "Reschedule",
+          href: "/agreement/amend",
+          classes: "govuk-button--secondary govuk-button--small govuk-!-margin-bottom-0"
+        })
+      }
+    ],
+    [
+      {
+        text: "23rd April"
+      },
+      {
+        html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "General waste"
+      },
+      {
+        text: "Every Thursday"
+      },
+      {
+        html: '0002063'
+      },
+      {
+        html: govukButton({
+          text: "Reschedule",
+          href: "/agreement/amend",
+          classes: "govuk-button--secondary govuk-button--small govuk-!-margin-bottom-0"
+        })
+      }
+    ],
+    [
+      {
+        text: "28th April"
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        text: "Every Tuesday"
+      },
+      {
+        html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
+      },
+      {
+        html: govukButton({
+          text: "Reschedule",
+          href: "/agreement/amend",
+          classes: "govuk-button--secondary govuk-button--small govuk-!-margin-bottom-0"
+        })
+      }
+    ],
+    [
+      {
+        text: "30th April"
+      },
+      {
+        html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "General waste"
+      },
+      {
+        text: "Every Thursday"
+      },
+      {
+        html: '0002063'
+      },
+      {
+        html: govukButton({
+          text: "Reschedule",
+          href: "/agreement/amend",
+          classes: "govuk-button--secondary govuk-button--small govuk-!-margin-bottom-0"
+        })
+      }
+    ]
+  ]
+}) }}

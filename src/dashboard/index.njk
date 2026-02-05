@@ -1,6 +1,264 @@
 ---
-layout: dashboard.njk
+layout: default.njk
 title: Dashboard
-signed_in: true
-has_agreements: true
 ---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Business waste dashboard</h1>
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    You have <a class="govuk-notification-banner__link" href="/agreement/view/0002201">1 collection agreement</a> for review.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html,
+  classes: "govuk-notification-banner--warning",
+  attributes: {
+    "data-st8-key": "has-agreement-for-review",
+    "data-st8-show-if-set": true
+  }
+}) }}
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    We were unable to collect your food waste on Tuesday 14th April. <a class="govuk-notification-banner__link" href="/agreement/view/0002041">Find out why</a>.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html,
+  classes: "govuk-notification-banner--warning",
+  attributes: {
+    "data-st8-key": "has-failed-collection",
+    "data-st8-show-if-set": true
+  }
+}) }}
+
+<h2 class="govuk-heading-m">Quick actions</h2>
+
+<div class="quick-actions govuk-!-margin-bottom-9">
+    <div class="card">
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/dashboard/calendar" class="card__stretched-link govuk-link">Collection calendar</a></h3>
+        <p class="card__body govuk-body">Check when your next collections are scheduled</p>
+    </div>
+    <div class="card">
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/purchase" class="card__stretched-link govuk-link">One-off services</a></h3>
+        <p class="card__body govuk-body">Order replacement sacks, skips, or bulky collections</p>
+    </div>
+    <div class="card">
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/containers" class="card__stretched-link govuk-link">Container maintenance</a></h3>
+        <p class="card__body govuk-body">Tell us if your containers have been damaged or need servicing</p>
+    </div>
+</div>
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-6">Waste collection agreements</h2>
+
+<div class="govuk-tabs govuk-!-margin-bottom-3" data-module="govuk-tabs" data-govuk-tabs-init="">
+  <ul class="govuk-tabs__list" role="tablist">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+      Café Candide, 72 Guild Street
+    </li>
+    <li class="govuk-tabs__list-item" role="presentation">
+      + New premises
+    </li>
+  </ul>
+</div>
+
+{{ govukTable({
+  attributes: {
+    "data-st8-key": "has-agreements",
+    "data-st8-hide-if-set": true
+  },
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Reference"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Type"
+    },
+    {
+      text: "Last collected"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<a href="/agreement/view/0002201" class="govuk-link">0002201</a>'
+      },
+      {
+        html: govukTag({
+          text: "Awaiting review",
+          classes: "govuk-tag--red",
+          attributes: {
+            "data-st8-key": "has-agreement-for-review",
+            "data-st8-show-if-set": true
+          }
+        }) + ' ' + govukTag({
+          text: "Active",
+          classes: "govuk-tag--green",
+          attributes: {
+            "data-st8-key": "has-agreement-for-review",
+            "data-st8-hide-if-set": true
+          }
+        })
+      },
+      {
+        text: "Dry mixed recycling"
+      },
+      {
+        text: "–"
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+  attributes: {
+    "data-st8-key": "has-agreements",
+    "data-st8-show-if-set": true
+  },
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Reference"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Type"
+    },
+    {
+      text: "Last collected"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<a href="/agreement/view/0002201" class="govuk-link">0002201</a>'
+      },
+      {
+        html: govukTag({
+          text: "Awaiting review",
+          classes: "govuk-tag--red",
+          attributes: {
+            "data-st8-key": "has-agreement-for-review",
+            "data-st8-show-if-set": true
+          }
+        }) + ' ' + govukTag({
+          text: "Active",
+          classes: "govuk-tag--green",
+          attributes: {
+            "data-st8-key": "has-agreement-for-review",
+            "data-st8-hide-if-set": true
+          }
+        })
+      },
+      {
+        text: "Dry mixed recycling"
+      },
+      {
+        text: "–"
+      }
+    ],
+    [
+      {
+        html: '0002063'
+      },
+      {
+        html: govukTag({
+          text: "Active",
+          classes: "govuk-tag--green"
+        })
+      },
+      {
+        text: "General waste"
+      },
+      {
+        text: "2 days ago"
+      }
+    ],
+    [
+      {
+        html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
+      },
+      {
+        html: govukTag({
+          text: "Failed",
+          classes: "govuk-tag--red",
+          attributes: {
+            "data-st8-key": "has-failed-collection",
+            "data-st8-show-if-set": true
+          }
+        }) + ' ' + govukTag({
+          text: "Active",
+          classes: "govuk-tag--green",
+          attributes: {
+            "data-st8-key": "has-failed-collection",
+            "data-st8-hide-if-set": true
+          }
+        })
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        text: "4 days ago"
+      }
+    ],
+    [
+      {
+        html: '0001832'
+      },
+      {
+        html: govukTag({
+          text: "Expired",
+          classes: "govuk-tag--grey"
+        })
+      },
+      {
+        text: "Skip hire (one-off)"
+      },
+      {
+        text: "3 months ago"
+      }
+    ],
+    [
+      {
+        html: '0001830'
+      },
+      {
+        html: govukTag({
+          text: "Expired",
+          classes: "govuk-tag--grey"
+        })
+      },
+      {
+        text: "Premises clearance (one-off)"
+      },
+      {
+        text: "3 months ago"
+      }
+    ]
+  ]
+}) }}
+
+<div data-st8-key="has-agreement-for-review" data-st8-hide-if-set>
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-margin-top-9">Start a new collection agreement</h2>
+  <p class="govuk-body">Request a quote for a new collection service at one of your business premises.</p>
+  {{ govukButton({
+    text: "Start now",
+    href: "/agreement/new/choose-premises"
+  }) }}
+</div>

@@ -1,0 +1,83 @@
+---
+layout: default.njk
+title: Dry mixed recycling 0002201
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukBackLink({
+  text: "Back to agreement",
+  href: "/agreement/view/0002201",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Request a temporary amendment</h1>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds govuk-!-margin-bottom-9",
+  rows: [
+    {
+      key: {
+        text: "Reference"
+      },
+      value: {
+        text: "0002041"
+      }
+    },
+    {
+      key: {
+        text: "Latest invoice"
+      },
+      value: {
+        html: '<a href="#" class="govuk-link">View Invoice PDF</a>'
+      }
+    },
+    {
+      key: {
+        text: "Waste Transfer note"
+      },
+      value: {
+        html: '<a href="#" class="govuk-link">0002041-WTN.pdf</a>'
+      }
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "wasteType",
+  fieldset: {
+    legend: {
+      text: "What change do you want to request?",
+      classes: "govuk-fieldset__legend--m govuk-!-margin-bottom-4"
+    }
+  },
+  items: [
+    {
+      value: "Cancel one or more upcoming collections",
+      text: "Cancel one or more upcoming collections",
+      hint: {
+        text: "A credit note will be applied to your next invoice",
+        classes: "govuk-!-margin-bottom-3"
+      }
+    },
+    {
+      value: "Request an additional one-off collection",
+      text: "Request an additional one-off collection",
+      hint: {
+        text: "An additional charge will be added to your next invoice",
+        classes: "govuk-!-margin-bottom-3"
+      }
+    },
+    {
+      value: "Change number of containers",
+      text: "Change number of containers"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

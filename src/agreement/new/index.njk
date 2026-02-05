@@ -1,0 +1,18 @@
+---
+layout: default.njk
+title: Request a business waste collection quote
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<h1 class="govuk-heading-l">Request a business waste collection quote</h1>
+
+<p class="govuk-body readable">Requesting a quote for waste collection from your business is quick and easy.</p>
+
+<p class="govuk-body readable">Provide details of what amounts and types of waste you need collected, and we will send you a quote outlining the costs.</p>
+
+{{ govukButton({
+  text: "Start",
+  href: "/agreement/new/choose-premises",
+  isStartButton: true
+}) }}
