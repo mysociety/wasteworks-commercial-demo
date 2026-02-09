@@ -51,6 +51,10 @@ var scenarios = {
         "has-agreements": true,
         "has-failed-collection": true
     },
+    "staff": {
+        "is-staff": true,
+        "signed-in": true
+    },
 };
 
 $('[data-start-scenario]').on('click', function(e){

@@ -1,0 +1,60 @@
+---
+layout: staff.njk
+title: Edit pricing
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukBackLink({
+  text: "Back to pricing",
+  href: "/staff/pricing",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Edit service pricing</h1>
+
+    <h2 class="govuk-heading-m">Bulky waste collection</h2>
+
+    {{ govukTextarea({
+      label: {
+        text: "Description",
+        classes: "govuk-label--s"
+      },
+      id: "service-description",
+      name: "service-description",
+      value: "Collection of bulky waste items such as furniture and large appliances from business premises.",
+      rows: 4
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Price (£)",
+        classes: "govuk-label--s"
+      },
+      id: "service-price",
+      name: "service-price",
+      value: "45.00",
+      classes: "govuk-input--width-5",
+      prefix: {
+        text: "£"
+      },
+      inputmode: "decimal"
+    }) }}
+
+    <div class="button-bar govuk-!-margin-top-6">
+      {{ govukButton({
+        text: "Save changes"
+      }) }}
+      {{ govukButton({
+        text: "Cancel",
+        href: "/staff/pricing",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+---
+layout: staff.njk
+title: Notifications
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+<h1 class="govuk-heading-l">Notifications</h1>
+
+<p class="govuk-body">Manage notification templates sent to customers when collection issues arise.</p>
+
+{{ govukTable({
+  head: [
+    { text: "Notification type" },
+    { text: "Status" },
+    { text: "Last updated" },
+    { text: "Action" }
+  ],
+  rows: [
+    [
+      { text: "Container not presented" },
+      { html: govukTag({ text: "Active" }) },
+      { text: "3 March 2026" },
+      { html: '<a class="govuk-link" href="/staff/notifications/edit">Edit</a>' }
+    ],
+    [
+      { text: "Container contaminated" },
+      { html: govukTag({ text: "Active" }) },
+      { text: "15 February 2026" },
+      { html: '<a class="govuk-link" href="/staff/notifications/edit">Edit</a>' }
+    ],
+    [
+      { text: "Container damaged" },
+      { html: govukTag({ text: "Active" }) },
+      { text: "10 January 2026" },
+      { html: '<a class="govuk-link" href="/staff/notifications/edit">Edit</a>' }
+    ],
+    [
+      { text: "Container not accessible" },
+      { html: govukTag({ text: "Active" }) },
+      { text: "10 January 2026" },
+      { html: '<a class="govuk-link" href="/staff/notifications/edit">Edit</a>' }
+    ],
+    [
+      { text: "Overweight container" },
+      { html: govukTag({ text: "Active" }) },
+      { text: "8 January 2026" },
+      { html: '<a class="govuk-link" href="/staff/notifications/edit">Edit</a>' }
+    ],
+    [
+      { text: "Missed collection (crew)" },
+      { html: govukTag({ text: "Active" }) },
+      { text: "8 January 2026" },
+      { html: '<a class="govuk-link" href="/staff/notifications/edit">Edit</a>' }
+    ],
+    [
+      { text: "Agreement expiry reminder" },
+      { html: govukTag({ text: "Active" }) },
+      { text: "5 December 2025" },
+      { html: '<a class="govuk-link" href="/staff/notifications/edit">Edit</a>' }
+    ]
+  ]
+}) }}
+
+<div class="button-bar govuk-!-margin-bottom-6">
+  {{ govukButton({
+    text: "Add notification type",
+    href: "/staff/notifications/new",
+    classes: "govuk-button"
+  }) }}
+  {{ govukButton({
+    text: "Add site-wide notification",
+    href: "/staff/notifications/site-wide",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>

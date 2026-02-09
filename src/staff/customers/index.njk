@@ -1,0 +1,174 @@
+---
+layout: staff.njk
+title: Customers
+---
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">Search and filter</h2>
+
+    {{ govukInput({
+      label: { text: "Customer name" },
+      id: "filter-name",
+      name: "filter-name",
+      classes: "govuk-!-width-full"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Business name" },
+      id: "filter-business",
+      name: "filter-business",
+      classes: "govuk-!-width-full"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Address" },
+      id: "filter-address",
+      name: "filter-address",
+      classes: "govuk-!-width-full"
+    }) }}
+
+    {{ govukSelect({
+      id: "filter-status",
+      name: "filter-status",
+      classes: "govuk-!-width-full",
+      label: { text: "Status" },
+      items: [
+        { value: "", text: "All statuses", selected: true },
+        { value: "active", text: "Active" },
+        { value: "pending", text: "Pending" },
+        { value: "inactive", text: "Inactive" }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Apply filters",
+      classes: "govuk-button--secondary"
+    }) }}
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Customers</h1>
+
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <p class="govuk-body">Showing <strong>1–10</strong> of <strong>384</strong> customers</p>
+      <div class="button-bar">
+        {{ govukButton({
+          text: "Export CSV",
+          classes: "govuk-button--secondary govuk-button--small"
+        }) }}
+        {{ govukButton({
+          text: "New customer",
+          href: "/staff/customers/new",
+          classes: "govuk-button--small"
+        }) }}
+      </div>
+    </div>
+
+    {{ govukTable({
+      head: [
+        { text: "Name" },
+        { text: "Business" },
+        { text: "Postcode" },
+        { text: "Status" }
+      ],
+      rows: [
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">Sarah Philips</a>' },
+          { text: "Café Candide" },
+          { text: "N13 4BS" },
+          { html: govukTag({ text: "Active" }) }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">James Morton</a>' },
+          { text: "Morton & Sons Bakery" },
+          { text: "E8 1HN" },
+          { html: govukTag({ text: "Active" }) }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">Priya Sharma</a>' },
+          { text: "Sharma Grocers" },
+          { text: "SE15 5DQ" },
+          { html: govukTag({ text: "Active" }) }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">David Chen</a>' },
+          { text: "Golden Dragon Restaurant" },
+          { text: "N1 9PF" },
+          { html: govukTag({ text: "Pending", classes: "govuk-tag--yellow" }) }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">Fatima Al-Hassan</a>' },
+          { text: "Riverside Deli" },
+          { text: "SW11 3TN" },
+          { html: govukTag({ text: "Active" }) }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">Tom Bradley</a>' },
+          { text: "Bradley's Fish Bar" },
+          { text: "SE23 3HP" },
+          { html: govukTag({ text: "Inactive", classes: "govuk-tag--grey" }) }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">Maria Gonzalez</a>' },
+          { text: "El Sabor Tapas" },
+          { text: "E2 7RG" },
+          { html: govukTag({ text: "Active" }) }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">Robert Clarke</a>' },
+          { text: "The Corner Shop" },
+          { text: "N16 8JL" },
+          { html: govukTag({ text: "Active" }) }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">Aisha Begum</a>' },
+          { text: "Spice Kitchen" },
+          { text: "E1 6QL" },
+          { html: govukTag({ text: "Pending", classes: "govuk-tag--yellow" }) }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/customers/view">Patrick O\'Brien</a>' },
+          { text: "O'Brien's Pub" },
+          { text: "SE1 7TP" },
+          { html: govukTag({ text: "Active" }) }
+        ]
+      ]
+    }) }}
+
+    {{ govukPagination({
+      next: {
+        href: "#"
+      },
+      items: [
+        {
+          number: 1,
+          current: true,
+          href: "#"
+        },
+        {
+          number: 2,
+          href: "#"
+        },
+        {
+          number: 3,
+          href: "#"
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 39,
+          href: "#"
+        }
+      ]
+    }) }}
+  </div>
+</div>

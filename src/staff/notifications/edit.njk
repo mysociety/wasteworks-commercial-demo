@@ -1,0 +1,110 @@
+---
+layout: staff.njk
+title: Edit notification
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{{ govukBackLink({
+  text: "Back to notifications",
+  href: "/staff/notifications",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Edit notification</h1>
+
+    {{ govukInput({
+      label: {
+        text: "Internal name",
+        classes: "govuk-label--s"
+      },
+      id: "notification-name",
+      name: "notification-name",
+      value: "Container not presented"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Whitespace status code",
+        classes: "govuk-label--s"
+      },
+      id: "notification-code",
+      name: "notification-code",
+      value: "14"
+    }) }}
+
+    {{ govukSelect({
+      id: "notification-severity",
+      name: "notification-severity",
+      label: {
+        text: "Severity",
+        classes: "govuk-label--s"
+      },
+      items: [
+        { value: "info", text: "Information (blue)" },
+        { value: "warning", text: "Warning (yellow)" },
+        { value: "urgent", text: "Urgent (red)", selected: true }
+      ]
+    }) }}
+
+    {{ govukTextarea({
+      label: {
+        text: "Heading text",
+        classes: "govuk-label--s"
+      },
+      id: "notification-heading",
+      name: "notification-heading",
+      value: "There was an issue with this collection on {date}.",
+      rows: 2
+    }) }}
+
+    {{ govukTextarea({
+      label: {
+        text: "Body text",
+        classes: "govuk-label--s"
+      },
+      id: "notification-body",
+      name: "notification-body",
+      value: "The collection crew reported that your waste was not presented in the required container ({container}).\n\n{image}\n\nWe will next attempt collection on {next_date}. If the issue with your container is not resolved by then, and we have not heard from you, we may apply a penalty charge to your account.",
+      rows: 10
+    }) }}
+
+    <h2 class="govuk-heading-s govuk-!-margin-top-6">Preview</h2>
+
+    {% set previewHtml %}
+      <p class="govuk-notification-banner__heading">
+        There was an issue with this collection on Tuesday 14th April.
+      </p>
+      <p class="govuk-body">
+        The collection crew reported that your waste was not presented in the required container (240 litre green bin with brown lid).
+      </p>
+      <div style="width: 50%; padding: 10% 0; background: #ddd; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">Image</div>
+      <p class="govuk-body">
+        We will next attempt collection on <strong>Tuesday 21st April</strong>. If the issue with your container is not resolved by then, and we have not heard from you, we may apply a penalty charge to your account.
+      </p>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+      html: previewHtml,
+      classes: "govuk-notification-banner--warning"
+    }) }}
+
+    <div class="button-bar govuk-!-margin-top-6">
+      {{ govukButton({
+        text: "Save changes"
+      }) }}
+      {{ govukButton({
+        text: "Cancel",
+        href: "/staff/notifications",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
+  </div>
+</div>

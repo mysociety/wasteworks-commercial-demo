@@ -1,0 +1,113 @@
+---
+layout: staff.njk
+title: Create new agreement
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukBackLink({
+  text: "Back to agreements",
+  href: "/staff/agreements",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Create new agreement</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m">Customer</h2>
+
+    {{ govukInput({
+      label: { text: "Customer name or reference" },
+      id: "agreement-customer",
+      name: "agreement-customer"
+    }) }}
+
+    <h2 class="govuk-heading-m">Collection details</h2>
+
+    {{ govukSelect({
+      id: "agreement-waste-type",
+      name: "agreement-waste-type",
+      label: { text: "Waste type" },
+      items: [
+        { value: "", text: "Select a waste type" },
+        { value: "dry-mixed-recycling", text: "Dry mixed recycling" },
+        { value: "food-waste", text: "Food waste" },
+        { value: "general-waste", text: "General waste" },
+        { value: "glass", text: "Glass" },
+        { value: "cardboard", text: "Cardboard" }
+      ]
+    }) }}
+
+    {{ govukSelect({
+      id: "agreement-container-type",
+      name: "agreement-container-type",
+      label: { text: "Container type" },
+      items: [
+        { value: "", text: "Select a container type" },
+        { value: "240", text: "240 litres" },
+        { value: "360", text: "360 litres" },
+        { value: "660", text: "660 litres" },
+        { value: "1100", text: "1100 litres" }
+      ]
+    }) }}
+
+    {{ govukSelect({
+      id: "agreement-frequency",
+      name: "agreement-frequency",
+      label: { text: "Collection frequency" },
+      items: [
+        { value: "", text: "Select a frequency" },
+        { value: "weekly", text: "Every week" },
+        { value: "fortnightly", text: "Every 2 weeks" },
+        { value: "monthly", text: "Every month" }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Collection address</h2>
+
+    {{ govukInput({
+      label: { text: "Address line 1" },
+      id: "agreement-address-1",
+      name: "agreement-address-1"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Address line 2 (optional)" },
+      id: "agreement-address-2",
+      name: "agreement-address-2"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Town or city" },
+      id: "agreement-town",
+      name: "agreement-town",
+      classes: "govuk-input--width-20"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Postcode" },
+      id: "agreement-postcode",
+      name: "agreement-postcode",
+      classes: "govuk-input--width-10"
+    }) }}
+
+    {{ govukTextarea({
+      label: { text: "Bin location directions (optional)" },
+      id: "agreement-directions",
+      name: "agreement-directions",
+      rows: 3
+    }) }}
+
+    {{ govukButton({
+      text: "Create agreement",
+      href: "/staff/agreements"
+    }) }}
+
+  </div>
+</div>

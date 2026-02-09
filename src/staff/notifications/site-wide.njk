@@ -1,0 +1,92 @@
+---
+layout: staff.njk
+title: Add site-wide notification
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{{ govukBackLink({
+  text: "Back to notifications",
+  href: "/staff/notifications",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Add site-wide notification</h1>
+
+    <p class="govuk-body">Site-wide notifications are shown to all customers when they sign in to the portal. Use these for planned service disruptions, holiday schedules, or other important announcements.</p>
+
+    {{ govukInput({
+      label: {
+        text: "Notification heading",
+        classes: "govuk-label--s"
+      },
+      id: "sitewide-heading",
+      name: "sitewide-heading"
+    }) }}
+
+    {{ govukTextarea({
+      label: {
+        text: "Notification message",
+        classes: "govuk-label--s"
+      },
+      id: "sitewide-body",
+      name: "sitewide-body",
+      rows: 4
+    }) }}
+
+    {{ govukSelect({
+      id: "sitewide-type",
+      name: "sitewide-type",
+      label: {
+        text: "Banner type",
+        classes: "govuk-label--s"
+      },
+      items: [
+        { value: "info", text: "Information (blue)", selected: true },
+        { value: "warning", text: "Warning (yellow)" },
+        { value: "urgent", text: "Urgent (red)" }
+      ]
+    }) }}
+
+    {{ govukDateInput({
+      id: "sitewide-start",
+      namePrefix: "sitewide-start",
+      fieldset: {
+        legend: {
+          text: "Display from",
+          classes: "govuk-fieldset__legend--s"
+        }
+      }
+    }) }}
+
+    {{ govukDateInput({
+      id: "sitewide-end",
+      namePrefix: "sitewide-end",
+      fieldset: {
+        legend: {
+          text: "Display until",
+          classes: "govuk-fieldset__legend--s"
+        }
+      }
+    }) }}
+
+    <div class="button-bar govuk-!-margin-top-6">
+      {{ govukButton({
+        text: "Publish notification"
+      }) }}
+      {{ govukButton({
+        text: "Cancel",
+        href: "/staff/notifications",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
+  </div>
+</div>

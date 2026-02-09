@@ -1,0 +1,87 @@
+---
+layout: staff.njk
+title: Sarah Philips
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukBackLink({
+  text: "Back to customers",
+  href: "/staff/customers"
+}) }}
+
+<h1 class="govuk-heading-l">Sarah Philips</h1>
+
+<h2 class="govuk-heading-m">Contact details</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: { text: "Full name" },
+      value: { text: "Sarah Philips" }
+    },
+    {
+      key: { text: "Email address" },
+      value: { text: "sarah.phillips@example.com" }
+    },
+    {
+      key: { text: "Phone number" },
+      value: { text: "07700 900457" }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Business details</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: { text: "Business name" },
+      value: { text: "Café Candide" }
+    },
+    {
+      key: { text: "Company number" },
+      value: { text: "90636040" }
+    },
+    {
+      key: { text: "Business type" },
+      value: { text: "56102 Unlicensed restaurants and cafes" }
+    },
+    {
+      key: { text: "Address" },
+      value: { html: "483 Green Lanes<br>London<br>N13 4BS" }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Agreements</h2>
+
+{{ govukTable({
+  head: [
+    { text: "Reference" },
+    { text: "Status" },
+    { text: "Type" }
+  ],
+  rows: [
+    [
+      { html: '<a class="govuk-link" href="/staff/agreements/view">0002041</a>' },
+      { html: govukTag({ text: "Active" }) },
+      { text: "Dry mixed recycling" }
+    ]
+  ]
+}) }}
+
+<div class="button-bar">
+  {{ govukButton({
+    text: "Edit customer",
+    href: "/staff/customers/edit"
+  }) }}
+  {{ govukButton({
+    text: "Send password reset",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>

@@ -1,0 +1,186 @@
+---
+layout: staff.njk
+title: Agreements
+---
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">Search and filter</h2>
+
+    {{ govukInput({
+      label: { text: "Reference number" },
+      id: "filter-reference",
+      name: "filter-reference",
+      classes: "govuk-!-width-full"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Business name" },
+      id: "filter-business",
+      name: "filter-business",
+      classes: "govuk-!-width-full"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Address" },
+      id: "filter-address",
+      name: "filter-address",
+      classes: "govuk-!-width-full"
+    }) }}
+
+    {{ govukSelect({
+      id: "filter-status",
+      name: "filter-status",
+      classes: "govuk-!-width-full",
+      label: { text: "Status" },
+      items: [
+        { value: "", text: "All statuses", selected: true },
+        { value: "active", text: "Active" },
+        { value: "pending", text: "Pending" },
+        { value: "expired", text: "Expired" },
+        { value: "cancelled", text: "Cancelled" }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Apply filters",
+      classes: "govuk-button--secondary"
+    }) }}
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Agreements</h1>
+
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <p class="govuk-body">Showing <strong>1–10</strong> of <strong>512</strong> agreements</p>
+      <div class="button-bar">
+        {{ govukButton({
+          text: "Export CSV",
+          classes: "govuk-button--secondary govuk-button--small"
+        }) }}
+        {{ govukButton({
+          text: "New agreement",
+          href: "/staff/agreements/new",
+          classes: "govuk-button--small"
+        }) }}
+      </div>
+    </div>
+
+    {{ govukTable({
+      head: [
+        { text: "Reference" },
+        { text: "Business" },
+        { text: "Status" },
+        { text: "Type" },
+        { text: "Last collected" }
+      ],
+      rows: [
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002041</a>' },
+          { text: "Café Candide" },
+          { html: govukTag({ text: "Active" }) },
+          { text: "Dry mixed recycling" },
+          { text: "1 April 2026" }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002042</a>' },
+          { text: "Morton & Sons Bakery" },
+          { html: govukTag({ text: "Active" }) },
+          { text: "Food waste" },
+          { text: "31 March 2026" }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002043</a>' },
+          { text: "Sharma Grocers" },
+          { html: govukTag({ text: "Active" }) },
+          { text: "Cardboard" },
+          { text: "30 March 2026" }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002044</a>' },
+          { text: "Golden Dragon Restaurant" },
+          { html: govukTag({ text: "Pending", classes: "govuk-tag--yellow" }) },
+          { text: "Food waste" },
+          { text: "—" }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002045</a>' },
+          { text: "Riverside Deli" },
+          { html: govukTag({ text: "Active" }) },
+          { text: "General waste" },
+          { text: "28 March 2026" }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002046</a>' },
+          { text: "Bradley's Fish Bar" },
+          { html: govukTag({ text: "Expired", classes: "govuk-tag--red" }) },
+          { text: "Food waste" },
+          { text: "14 January 2026" }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002047</a>' },
+          { text: "El Sabor Tapas" },
+          { html: govukTag({ text: "Active" }) },
+          { text: "Glass" },
+          { text: "1 April 2026" }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002048</a>' },
+          { text: "The Corner Shop" },
+          { html: govukTag({ text: "Active" }) },
+          { text: "Dry mixed recycling" },
+          { text: "29 March 2026" }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002049</a>' },
+          { text: "Spice Kitchen" },
+          { html: govukTag({ text: "Pending", classes: "govuk-tag--yellow" }) },
+          { text: "Food waste" },
+          { text: "—" }
+        ],
+        [
+          { html: '<a class="govuk-link" href="/staff/agreements/view">0002050</a>' },
+          { text: "O'Brien's Pub" },
+          { html: govukTag({ text: "Active" }) },
+          { text: "Glass" },
+          { text: "31 March 2026" }
+        ]
+      ]
+    }) }}
+
+    {{ govukPagination({
+      next: {
+        href: "#"
+      },
+      items: [
+        {
+          number: 1,
+          current: true,
+          href: "#"
+        },
+        {
+          number: 2,
+          href: "#"
+        },
+        {
+          number: 3,
+          href: "#"
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 52,
+          href: "#"
+        }
+      ]
+    }) }}
+  </div>
+</div>

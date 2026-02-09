@@ -1,0 +1,96 @@
+---
+layout: staff.njk
+title: Edit customer
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukBackLink({
+  text: "Back to customer",
+  href: "/staff/customers/view"
+}) }}
+
+<h1 class="govuk-heading-l">Edit customer</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m">Contact details</h2>
+
+    {{ govukInput({
+      label: { text: "Full name" },
+      id: "edit-customer-name",
+      name: "edit-customer-name",
+      value: "Sarah Philips"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Email address" },
+      id: "edit-customer-email",
+      name: "edit-customer-email",
+      type: "email",
+      value: "sarah.phillips@example.com"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Phone number" },
+      id: "edit-customer-phone",
+      name: "edit-customer-phone",
+      type: "tel",
+      classes: "govuk-input--width-20",
+      value: "07700 900457"
+    }) }}
+
+    <h2 class="govuk-heading-m">Business details</h2>
+
+    {{ govukInput({
+      label: { text: "Business name" },
+      id: "edit-customer-business",
+      name: "edit-customer-business",
+      value: "Café Candide"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Address line 1" },
+      id: "edit-customer-address-1",
+      name: "edit-customer-address-1",
+      value: "483 Green Lanes"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Address line 2 (optional)" },
+      id: "edit-customer-address-2",
+      name: "edit-customer-address-2"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Town or city" },
+      id: "edit-customer-town",
+      name: "edit-customer-town",
+      classes: "govuk-input--width-20",
+      value: "London"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Postcode" },
+      id: "edit-customer-postcode",
+      name: "edit-customer-postcode",
+      classes: "govuk-input--width-10",
+      value: "N13 4BS"
+    }) }}
+
+    <div class="button-bar">
+      {{ govukButton({
+        text: "Save changes",
+        href: "/staff/customers/view"
+      }) }}
+      {{ govukButton({
+        text: "Send password reset",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
+
+  </div>
+</div>

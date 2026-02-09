@@ -1,0 +1,98 @@
+---
+layout: staff.njk
+title: Agreement 0002041
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+{{ govukBackLink({
+  text: "Back to agreements",
+  href: "/staff/agreements",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Agreement 0002041</h1>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: { text: "Reference" },
+      value: { text: "0002041" }
+    },
+    {
+      key: { text: "Status" },
+      value: {
+        html: govukTag({ text: "Active", classes: "govuk-tag--green" })
+      }
+    },
+    {
+      key: { text: "Customer" },
+      value: {
+        html: '<a href="/staff/customers/view" class="govuk-link">Sarah Philips</a> — Café Candide'
+      }
+    },
+    {
+      key: { text: "Latest invoice" },
+      value: {
+        html: '<a href="#" class="govuk-link">View Invoice PDF</a>'
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Waste Transfer Note</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: { text: "Valid from" },
+      value: { text: "20th July 2025" }
+    },
+    {
+      key: { text: "Valid to" },
+      value: { text: "19th July 2026" }
+    },
+    {
+      key: { text: "Current note" },
+      value: {
+        html: '<a href="#" class="govuk-link">0002041-WTN.pdf</a>'
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Collection details</h2>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: { text: "Type" },
+      value: { text: "Food waste" }
+    },
+    {
+      key: { text: "Location" },
+      value: {
+        html: "Café Candide<br>72 Guild Street<br>London<br>SE23 6FH"
+      }
+    },
+    {
+      key: { text: "Container" },
+      value: {
+        html: '1 &times; 240 litre, green with brown lid <img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="margin-top: 0.5rem; max-width: 5rem;">'
+      }
+    },
+    {
+      key: { text: "Collection schedule" },
+      value: { text: "Every week, on Tuesday" }
+    },
+    {
+      key: { text: "Bin location" },
+      value: { text: "Alleyway beside car park" }
+    }
+  ]
+}) }}

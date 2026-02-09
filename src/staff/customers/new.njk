@@ -1,0 +1,83 @@
+---
+layout: staff.njk
+title: Add new customer
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukBackLink({
+  text: "Back to customers",
+  href: "/staff/customers"
+}) }}
+
+<h1 class="govuk-heading-l">Add new customer</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m">Contact details</h2>
+
+    {{ govukInput({
+      label: { text: "Full name" },
+      id: "new-customer-name",
+      name: "new-customer-name"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Email address" },
+      id: "new-customer-email",
+      name: "new-customer-email",
+      type: "email"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Phone number" },
+      id: "new-customer-phone",
+      name: "new-customer-phone",
+      type: "tel",
+      classes: "govuk-input--width-20"
+    }) }}
+
+    <h2 class="govuk-heading-m">Business details</h2>
+
+    {{ govukInput({
+      label: { text: "Business name" },
+      id: "new-customer-business",
+      name: "new-customer-business"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Address line 1" },
+      id: "new-customer-address-1",
+      name: "new-customer-address-1"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Address line 2 (optional)" },
+      id: "new-customer-address-2",
+      name: "new-customer-address-2"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Town or city" },
+      id: "new-customer-town",
+      name: "new-customer-town",
+      classes: "govuk-input--width-20"
+    }) }}
+
+    {{ govukInput({
+      label: { text: "Postcode" },
+      id: "new-customer-postcode",
+      name: "new-customer-postcode",
+      classes: "govuk-input--width-10"
+    }) }}
+
+    {{ govukButton({
+      text: "Create customer",
+      href: "/staff/customers"
+    }) }}
+
+  </div>
+</div>

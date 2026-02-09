@@ -1,0 +1,46 @@
+---
+layout: staff.njk
+title: Pricing
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+<h1 class="govuk-heading-l">Pricing</h1>
+
+<p class="govuk-body">Manage prices for one-off services available to customers.</p>
+
+{{ govukTable({
+  head: [
+    { text: "Service" },
+    { text: "Price", format: "numeric" },
+    { text: "Action" }
+  ],
+  rows: [
+    [
+      { text: "Replacement waste sacks (pack of 50)" },
+      { text: "£12.50", format: "numeric" },
+      { html: '<a class="govuk-link" href="/staff/pricing/edit?item=sacks">Edit</a>' }
+    ],
+    [
+      { text: "Bulky waste collection" },
+      { text: "£45.00", format: "numeric" },
+      { html: '<a class="govuk-link" href="/staff/pricing/edit?item=bulky">Edit</a>' }
+    ],
+    [
+      { text: "Business premises clearance" },
+      { text: "£185.00", format: "numeric" },
+      { html: '<a class="govuk-link" href="/staff/pricing/edit?item=clearance">Edit</a>' }
+    ],
+    [
+      { text: "Skip hire" },
+      { text: "£220.00", format: "numeric" },
+      { html: '<a class="govuk-link" href="/staff/pricing/edit?item=skip">Edit</a>' }
+    ]
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Add new item",
+  classes: "govuk-button"
+}) }}
