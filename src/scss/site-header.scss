@@ -5,7 +5,7 @@ $site-header-color: govuk-colour("white");
 
 .site-header {
     @include govuk-font($size: 16, $line-height: 1);
-    padding: govuk-spacing(3) govuk-spacing(3);
+    padding: govuk-spacing(3) 0;
     border-bottom: $site-header-border-width solid $site-header-border-color;
     background: $site-header-background;
     color: $site-header-color;

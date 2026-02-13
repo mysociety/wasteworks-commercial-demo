@@ -10,6 +10,8 @@ $govuk-brand-colour: $color-societyworks-green;
 $govuk-new-typography-scale: true;
 $govuk-font-family: Lato, sans-serif;
 
+$govuk-page-width: 1100px;
+
 @import "govuk-frontend/dist/govuk/index";
 
 @import "site-header.scss";
@@ -22,8 +24,19 @@ $govuk-font-family: Lato, sans-serif;
   padding-bottom: $govuk-gutter;
 }
 
-.govuk-service-navigation__list {
-  justify-content: flex-end;
+.govuk-service-navigation__service-name {
+  width: 100%; // break nav links onto second line
+  @include govuk-font(
+    $size: 24,
+    $line-height: 1,
+    $weight: bold
+  );
+}
+
+// Pretty hacky rules here, to add space before account-related nav items.
+.govuk-service-navigation__item:has(a[href*="/account"]),
+.nav-staff .govuk-service-navigation__item:last-child {
+  margin-left: auto;
 }
 
 .govuk-table--align-middle {

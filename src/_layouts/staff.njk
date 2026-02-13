@@ -18,35 +18,32 @@
 
     <header class="site-header">
       <div class="govuk-width-container">
-        <a href="#" class="site-logo">Demo Authority</a>
+        <a href="/" class="site-logo">Demo Authority</a>
       </div>
     </header>
+
+    {% set navItems = [
+      { href: "/staff/customers", text: "Customers", section: "/staff/customers" },
+      { href: "/staff/agreements", text: "Agreements", section: "/staff/agreements" },
+      { href: "/staff/pricing", text: "Pricing", section: "/staff/pricing" },
+      { href: "/staff/notifications", text: "Notifications", section: "/staff/notifications" },
+      { href: "/", text: "Sign out" }
+    ] %}
+
+    {% set builtNav = [] %}
+    {% for item in navItems %}
+      {% if item.section and page.url.startsWith(item.section) %}
+        {% set builtNav = (builtNav.push({ href: item.href, text: item.text, active: true }), builtNav) %}
+      {% else %}
+        {% set builtNav = (builtNav.push({ href: item.href, text: item.text }), builtNav) %}
+      {% endif %}
+    {% endfor %}
 
     {{ govukServiceNavigation({
       serviceName: "Business waste collection",
       serviceUrl: "/",
-      navigation: [
-        {
-          href: "/staff/customers",
-          text: "Customers"
-        },
-        {
-          href: "/staff/agreements",
-          text: "Agreements"
-        },
-        {
-          href: "/staff/pricing",
-          text: "Pricing"
-        },
-        {
-          href: "/staff/notifications",
-          text: "Notifications"
-        },
-        {
-          href: "/",
-          text: "Sign out"
-        }
-      ]
+      navigation: builtNav,
+      navigationClasses: "nav-staff"
     }) }}
 
     <div class="govuk-width-container">

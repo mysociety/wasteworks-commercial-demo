@@ -3,18 +3,11 @@ layout: default.njk
 title: Collection calendar
 ---
 
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/tag/macro.njk" import govukTag %}
 
-{{ govukBackLink({
-  text: "Back to dashboard",
-  href: "/dashboard",
-  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-}) }}
-
-<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Collection calendar</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Collections</h1>
 
 <div class="govuk-tabs govuk-!-margin-bottom-6" data-module="govuk-tabs" data-govuk-tabs-init="">
   <ul class="govuk-tabs__list" role="tablist">

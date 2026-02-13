@@ -43,7 +43,6 @@ var scenarios = {
         "has-agreement-for-review": true
     },
     "established": {
-        "signed-in": true,
         "has-agreements": true
     },
     "failed-collection": {
@@ -163,4 +162,12 @@ if (stateful.getState('signed-in')) {
 
 $('.js-agreement-reviewed').on('click', function(){
     stateful.updateState('has-agreement-for-review');
+});
+
+$('.js-sign-in').on('click', function(){
+    stateful.updateState('signed-in', 'true');
+});
+
+$('.govuk-service-navigation a[href*="/sign-in"]').on('click', function(){
+    stateful.updateState('signed-in'); // removes the state
 });
