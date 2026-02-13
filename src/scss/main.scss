@@ -46,9 +46,26 @@ $govuk-page-width: 1100px;
   }
 }
 
+.govuk-table--with-action-column {
+  th:last-child, td:last-child {
+    width: 0;
+  }
+
+  .govuk-button {
+    white-space: nowrap;
+  }
+}
+
 .govuk-button--small {
   @include govuk-font($size: 16, $line-height: 1);
   padding: govuk-spacing(1);
+}
+
+// Make tags look less like buttons
+.govuk-tag {
+  font-size: 0.9em;
+  line-height: inherit;
+  border-radius: 0.25em;
 }
 
 img {

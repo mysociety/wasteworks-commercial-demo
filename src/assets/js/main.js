@@ -171,3 +171,7 @@ $('.js-sign-in').on('click', function(){
 $('.govuk-service-navigation a[href*="/sign-in"]').on('click', function(){
     stateful.updateState('signed-in'); // removes the state
 });
+
+$('.js-report-missed').on('click', function(){
+    stateful.updateState('collection-missed', 'true');
+});

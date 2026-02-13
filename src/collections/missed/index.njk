@@ -1,0 +1,103 @@
+---
+layout: default.njk
+title: Report a missed collection
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukBackLink({
+  text: "Back to collections",
+  href: "/collections",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Report a missed collection</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Location"
+          },
+          value: {
+            html: "Café Candide<br>72 Guild Street<br>London<br>SE23 6FH"
+          }
+        },
+        {
+          key: {
+            text: "Collection point"
+          },
+          value: {
+            text: "Alleyway beside car park"
+          }
+        },
+        {
+          key: {
+            text: "Waste type"
+          },
+          value: {
+            text: "General waste"
+          }
+        },
+        {
+          key: {
+            text: "Container"
+          },
+          value: {
+            html: '1100 litre (Euro bin), grey with black lid <img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="margin-top: 0.5rem; max-width: 5rem;">'
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukWarningText({
+      text: "Note: missed collections can only be reported after 6pm on the day of collection.",
+      iconFallbackText: "Note",
+      classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-7"
+    }) }}
+
+    {{ govukCheckboxes({
+      name: "missed-collection-confirmations",
+      fieldset: {
+        legend: {
+          text: "Please confirm the following:",
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [
+        {
+          value: "presented-on-time",
+          html: "The container was presented <strong>before 8am</strong>, at the agreed collection point"
+        },
+        {
+          value: "correct-waste",
+          html: "The container contained only <strong>general waste</strong> and was not overflowing"
+        }
+      ]
+    }) }}
+
+    {{ govukTextarea({
+      label: {
+        text: "Additional comments (optional)"
+      },
+      id: "comments",
+      name: "comments"
+    }) }}
+
+    {{ govukButton({
+      text: "Report missed collection",
+      href: "/collections/missed/success",
+      classes: "js-report-missed"
+    }) }}
+
+  </div>
+</div>

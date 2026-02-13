@@ -1,0 +1,36 @@
+---
+layout: default.njk
+title: Missed collection reported
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Missed collection report submitted",
+      html: "Your reference number<br><strong>HDJ2123F-003</strong>"
+    }) }}
+
+    <p class="govuk-body">We have sent you a confirmation email.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p class="govuk-body">
+      We will review your report and aim to be in touch within <strong>2 working days</strong>.
+    </p>
+
+    <p class="govuk-body">
+      In the meantime, please take in your container so that it doesn’t cause a nuisance to others. Thank you.
+    </p>
+
+    {{ govukButton({
+      text: "Back to collections",
+      classes: "govuk-button--secondary govuk-!-margin-top-5",
+      href: "/collections"
+    }) }}
+
+  </div>
+</div>

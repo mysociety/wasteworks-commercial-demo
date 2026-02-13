@@ -21,16 +21,13 @@ title: Collection calendar
 </div>
 
 {{ govukTable({
-  classes: "govuk-table--align-middle",
+  classes: "govuk-table--align-middle govuk-table--with-action-column",
   caption: "Recent collections",
   captionClasses: "govuk-table__caption--m",
   firstCellIsHeader: true,
   head: [
     {
       text: "Date"
-    },
-    {
-      text: "Status"
     },
     {
       text: ""
@@ -43,18 +40,18 @@ title: Collection calendar
     },
     {
       text: "Reference"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: ""
     }
   ],
   rows: [
     [
       {
         text: "7th April"
-      },
-      {
-        html: govukTag({
-          text: "Collected",
-          classes: "govuk-tag--green"
-        })
       },
       {
         html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
@@ -68,17 +65,20 @@ title: Collection calendar
       },
       {
         html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
-      }
-    ],
-    [
-      {
-        text: "9th April"
       },
       {
         html: govukTag({
           text: "Collected",
           classes: "govuk-tag--green"
         })
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        text: "9th April"
       },
       {
         html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
@@ -92,11 +92,33 @@ title: Collection calendar
       },
       {
         html: '0002063'
+      },
+      {
+        html: govukTag({
+          text: "Collected",
+          classes: "govuk-tag--green"
+        })
+      },
+      {
+        text: ""
       }
     ],
     [
       {
         text: "14th April"
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        text: "172 litres"
+      },
+      {
+        html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
       },
       {
         html: govukTag({
@@ -116,28 +138,12 @@ title: Collection calendar
         })
       },
       {
-        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
-        classes: "width-0"
-      },
-      {
-        text: "Food waste"
-      },
-      {
-        text: "172 litres"
-      },
-      {
-        html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
+        text: ""
       }
     ],
     [
       {
         text: "16th April"
-      },
-      {
-        html: govukTag({
-          text: "Collected",
-          classes: "govuk-tag--green"
-        })
       },
       {
         html: '<img src="/assets/img/large-communal-grey-black-lid@2x.png" width="479" height="435" alt="" style="max-width: 2rem;">',
@@ -147,17 +153,45 @@ title: Collection calendar
         text: "General waste"
       },
       {
-        text: "782 litres"
+        text: "–"
       },
       {
         html: '0002063'
+      },
+      {
+        html: govukTag({
+          text: "Pending",
+          classes: "govuk-tag--grey",
+          attributes: {
+            "data-st8-key": "collection-missed",
+            "data-st8-hide-if-set": true
+          }
+        }) + ' ' + govukTag({
+          text: "Reported missed",
+          classes: "govuk-tag--red",
+          attributes: {
+            "data-st8-key": "collection-missed",
+            "data-st8-show-if-set": true
+          }
+        })
+      },
+      {
+        html: govukButton({
+          text: "Report missed",
+          href: "/collections/missed",
+          classes: "govuk-button--warning govuk-button--small govuk-!-margin-bottom-0",
+          attributes: {
+            "data-st8-key": "collection-missed",
+            "data-st8-hide-if-set": true
+          }
+        })
       }
     ]
   ]
 }) }}
 
 {{ govukTable({
-  classes: "govuk-table--align-middle govuk-!-margin-top-9",
+  classes: "govuk-table--align-middle govuk-table--with-action-column govuk-!-margin-top-9",
   caption: "Upcoming collections",
   captionClasses: "govuk-table__caption--m",
   firstCellIsHeader: true,
