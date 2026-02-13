@@ -1,0 +1,162 @@
+---
+layout: default.njk
+title: Check your answers – One-off purchase
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  One-off purchase
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your answers before paying</h1>
+
+<div data-st8-key="purchase-type" data-st8-show-if-value="sacks">
+
+  {{ govukSummaryList({
+    classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
+    rows: [
+      {
+        key: {
+          text: "Service"
+        },
+        value: {
+          text: "Replacement waste sacks (pack of 50)"
+        },
+        actions: {
+          items: [
+            {
+              href: "/purchase",
+              text: "Change",
+              visuallyHiddenText: "service"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Delivery address"
+        },
+        value: {
+          html: '<div data-st8-key="purchase-address-line-1">72 Guild Street</div>' +
+                '<div data-st8-key="purchase-address-line-2"></div>' +
+                '<div data-st8-key="purchase-address-town">London</div>' +
+                '<div data-st8-key="purchase-address-county"></div>' +
+                '<div data-st8-key="purchase-address-postcode">SE23 6FH</div>'
+        },
+        actions: {
+          items: [
+            {
+              href: "/purchase/address",
+              text: "Change",
+              visuallyHiddenText: "delivery address"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  <div class="govuk-inset-text govuk-!-width-two-thirds">
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Total to pay</p>
+    <p class="govuk-heading-l govuk-!-margin-bottom-0 govuk-!-padding-top-2">£50.00</p>
+  </div>
+
+</div>
+
+<div data-st8-key="purchase-type" data-st8-show-if-value="bulky">
+
+  {{ govukSummaryList({
+    classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
+    rows: [
+      {
+        key: {
+          text: "Service"
+        },
+        value: {
+          text: "Bulky waste collection"
+        },
+        actions: {
+          items: [
+            {
+              href: "/purchase",
+              text: "Change",
+              visuallyHiddenText: "service"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Collection address"
+        },
+        value: {
+          html: '<div data-st8-key="purchase-address-line-1">72 Guild Street</div>' +
+                '<div data-st8-key="purchase-address-line-2"></div>' +
+                '<div data-st8-key="purchase-address-town">London</div>' +
+                '<div data-st8-key="purchase-address-county"></div>' +
+                '<div data-st8-key="purchase-address-postcode">SE23 6FH</div>'
+        },
+        actions: {
+          items: [
+            {
+              href: "/purchase/address",
+              text: "Change",
+              visuallyHiddenText: "collection address"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Items for collection"
+        },
+        value: {
+          html: '<span data-st8-key="purchase-bulky-item-1-qty">1</span> &times; <span data-st8-key="purchase-bulky-item-1">—</span>'
+        },
+        actions: {
+          items: [
+            {
+              href: "/purchase/bulky-items",
+              text: "Change",
+              visuallyHiddenText: "items for collection"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Collection date"
+        },
+        value: {
+          html: '<span class="js-purchase-collection-date">—</span>'
+        },
+        actions: {
+          items: [
+            {
+              href: "/purchase/date",
+              text: "Change",
+              visuallyHiddenText: "collection date"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  <div class="govuk-inset-text govuk-!-width-two-thirds">
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Total to pay</p>
+    <p class="govuk-heading-l govuk-!-margin-bottom-0 govuk-!-padding-top-2">£250.00</p>
+  </div>
+
+</div>
+
+<p class="govuk-body govuk-!-width-two-thirds">
+  <span class="govuk-hint">You will be taken to a secure payment gateway to complete your transaction.</span>
+</p>
+
+{{ govukButton({
+  text: "Pay now",
+  href: "/purchase/pay"
+}) }}

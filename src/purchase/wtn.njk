@@ -1,0 +1,53 @@
+---
+layout: default.njk
+title: Waste Transfer Note – One-off purchase
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  One-off purchase
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Review and accept Waste Transfer Note</h1>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds",
+  rows: [
+    {
+      key: {
+        text: "Service"
+      },
+      value: {
+        html: '<span data-st8-key="purchase-type" data-st8-show-if-value="sacks">Replacement waste sacks (pack of 50)</span>' +
+              '<span data-st8-key="purchase-type" data-st8-show-if-value="bulky">Bulky waste collection</span>'
+      }
+    },
+    {
+      key: {
+        text: "Waste Transfer Note"
+      },
+      value: {
+        html: '<a href="#" class="govuk-link">View Waste Transfer Note PDF</a>'
+      }
+    }
+  ]
+}) }}
+
+{{ govukCheckboxes({
+  name: "accept",
+  classes: "govuk-!-width-two-thirds",
+  items: [
+    {
+      value: "accept",
+      text: "I have read and understood the terms of the Waste Transfer Note, confirm that it is reflective of the waste to be collected, and accept that a valid physical or digital copy of the note may need to be presented at every waste collection."
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/purchase/check"
+}) }}

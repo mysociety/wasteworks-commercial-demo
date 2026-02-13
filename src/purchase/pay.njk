@@ -1,0 +1,34 @@
+---
+layout: default.njk
+title: Complete payment – One-off purchase
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  One-off purchase
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Complete your payment</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body">Scan the QR code below with your mobile phone to complete your payment securely.</p>
+
+    <div class="govuk-!-margin-bottom-6" style="padding: 1.5rem; background: #fff; border: 1px solid #b1b4b6; display: inline-block;">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://pay.example.gov.uk/demo" width="200" height="200" alt="QR code for payment">
+    </div>
+
+    <p class="govuk-body">Alternatively, you can make a manual bank transfer to <a href="#">these account details</a>.</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Once you have completed payment, press Continue.</p>
+
+    {{ govukButton({
+      text: "Continue",
+      href: "/purchase/success",
+      classes: "govuk-!-margin-top-3"
+    }) }}
+
+  </div>
+</div>

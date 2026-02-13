@@ -122,7 +122,7 @@ var dateFormat = function dateFormat(y, m, d) {
     return '' + d + ordinal(d) + ' ' + month(m) + ' ' + y;
 }
 
-$.each(['start-date', 'first-collection-date'], function(i, id){
+$.each(['start-date', 'first-collection-date', 'purchase-collection-date'], function(i, id){
     $('.js-' + id).each(function(){
         var y = stateful.getState(id + '-year');
         var m = stateful.getState(id + '-month');

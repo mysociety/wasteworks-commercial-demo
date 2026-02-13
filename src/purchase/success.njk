@@ -1,0 +1,37 @@
+---
+layout: default.njk
+title: Order complete – One-off purchase
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Order complete",
+      html: "Your reference number<br><strong>PUR-2026-00471</strong>"
+    }) }}
+
+    <p class="govuk-body">We have sent you a confirmation email with your receipt and Waste Transfer Note.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <div data-st8-key="purchase-type" data-st8-show-if-value="sacks">
+      <p class="govuk-body">Your replacement waste sacks will be delivered to the address you provided within <strong>5 working days</strong>.</p>
+    </div>
+
+    <div data-st8-key="purchase-type" data-st8-show-if-value="bulky">
+      <p class="govuk-body">We will collect your items on your requested date. Please ensure all items are accessible and placed at the front of the premises by <strong>8am</strong> on the day of collection.</p>
+      <p class="govuk-body">If we need to change your collection date, we will contact you at least 2 working days in advance.</p>
+    </div>
+
+    {{ govukButton({
+      text: "Return to dashboard",
+      classes: "govuk-button--secondary govuk-!-margin-top-5",
+      href: "/dashboard"
+    }) }}
+
+  </div>
+</div>

@@ -1,0 +1,145 @@
+---
+layout: default.njk
+title: Items for collection – One-off purchase
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+<link rel="stylesheet" href="/assets/css/accessible-autocomplete.min.css">
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  One-off purchase – Bulky waste collection
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Items for collection</h1>
+
+<p class="govuk-body readable">Select the items you need collected. You can add up to 10 items per collection.</p>
+
+<div class="govuk-!-width-two-thirds govuk-!-margin-bottom-6">
+  <div class="govuk-grid-row govuk-!-margin-bottom-4">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukSelect({
+        id: "bulky-item-1",
+        name: "bulky-item-1",
+        label: {
+          text: "Item 1"
+        },
+        attributes: {
+          "data-st8-key": "purchase-bulky-item-1"
+        },
+        items: [
+          { value: "", text: "Select an item", selected: true },
+          { value: "Bag or box of bits and pieces", text: "Bag or box of bits and pieces" },
+          { value: "Bannister rail", text: "Bannister rail" },
+          { value: "Bookcase (up to 5 ft tall)", text: "Bookcase (up to 5 ft tall)" },
+          { value: "Cardboard boxes, archive boxes (broken down)", text: "Cardboard boxes, archive boxes (broken down)" },
+          { value: "Cardboard packaging (broken down)", text: "Cardboard packaging (broken down)" },
+          { value: "Carpet (under 16 square meters)", text: "Carpet (under 16 square meters)" },
+          { value: "Carpet (over 16 square meters)", text: "Carpet (over 16 square meters)" },
+          { value: "Carpet shampooer (hoover style)", text: "Carpet shampooer (hoover style)" },
+          { value: "Carpet shampooer large box type", text: "Carpet shampooer large box type" },
+          { value: "Chair (non upholstered)", text: "Chair (non upholstered)" },
+          { value: "Chair (office)", text: "Chair (office)" },
+          { value: "Coffee table or nest of small tables", text: "Coffee table or nest of small tables" },
+          { value: "Computer monitor only", text: "Computer monitor only" },
+          { value: "Computer monitor, printer, processor", text: "Computer monitor, printer, processor" },
+          { value: "Computer workstation (small)", text: "Computer workstation (small)" },
+          { value: "De-humidifier", text: "De-humidifier" },
+          { value: "Desk", text: "Desk" },
+          { value: "Dishwasher (commercial)", text: "Dishwasher (commercial)" },
+          { value: "Dishwasher (domestic)", text: "Dishwasher (domestic)" },
+          { value: "Display cabinet", text: "Display cabinet" },
+          { value: "Door (internal or external, wood or glass)", text: "Door (internal or external, wood or glass)" },
+          { value: "Door (double glazed)", text: "Door (double glazed)" },
+          { value: "Fan (stand up type)", text: "Fan (stand up type)" },
+          { value: "Fence panel", text: "Fence panel" },
+          { value: "Fence post (concrete)", text: "Fence post (concrete)" },
+          { value: "Fence post (wooden)", text: "Fence post (wooden)" },
+          { value: "Filing cabinet (cupboard type with doors)", text: "Filing cabinet (cupboard type with doors)" },
+          { value: "Filing cabinet (with drawers)", text: "Filing cabinet (with drawers)" },
+          { value: "Fireguard", text: "Fireguard" },
+          { value: "Fluorescent light fitting", text: "Fluorescent light fitting" },
+          { value: "Fridge or freezer (over 3 ft wide or tall)", text: "Fridge or freezer (over 3 ft wide or tall)" },
+          { value: "Fridge or freezer (fits under worktop)", text: "Fridge or freezer (fits under worktop)" },
+          { value: "Hoover/vacuum cleaner", text: "Hoover/vacuum cleaner" },
+          { value: "Ironing board", text: "Ironing board" },
+          { value: "Jet wash machine", text: "Jet wash machine" },
+          { value: "Kitchen base unit or wall cupboard", text: "Kitchen base unit or wall cupboard" },
+          { value: "Ladder (over 6 ft tall)", text: "Ladder (over 6 ft tall)" },
+          { value: "Ladder (up to 6 ft tall)", text: "Ladder (up to 6 ft tall)" },
+          { value: "Lamp (standard or table)", text: "Lamp (standard or table)" },
+          { value: "Metal shelving unit (up to 5 ft tall)", text: "Metal shelving unit (up to 5 ft tall)" },
+          { value: "Microwave", text: "Microwave" },
+          { value: "Mirror (up to 6ft x 2ft)", text: "Mirror (up to 6ft x 2ft)" },
+          { value: "Pallet (slatted wooden type)", text: "Pallet (slatted wooden type)" },
+          { value: "Pallet (solid base type)", text: "Pallet (solid base type)" },
+          { value: "Photocopier (free-standing)", text: "Photocopier (free-standing)" },
+          { value: "Photocopier (small table top size)", text: "Photocopier (small table top size)" },
+          { value: "Radiator (over 5ft)", text: "Radiator (over 5ft)" },
+          { value: "Radiator or convector heater (up to 4 ft)", text: "Radiator or convector heater (up to 4 ft)" },
+          { value: "Rug", text: "Rug" },
+          { value: "Settee, sofa or futon (2 or 3 seater)", text: "Settee, sofa or futon (2 or 3 seater)" },
+          { value: "Sideboard", text: "Sideboard" },
+          { value: "Sink top (drainer only)", text: "Sink top (drainer only)" },
+          { value: "Sink unit (including drainer)", text: "Sink unit (including drainer)" },
+          { value: "Spin drier", text: "Spin drier" },
+          { value: "Storage heater (with bricks taken out and wrapped in plastic)", text: "Storage heater (with bricks taken out and wrapped in plastic)" },
+          { value: "Storage heater (without bricks)", text: "Storage heater (without bricks)" },
+          { value: "Television/stand", text: "Television/stand" },
+          { value: "Toilet and cistern", text: "Toilet and cistern" },
+          { value: "Toilet seat", text: "Toilet seat" },
+          { value: "Towel rail", text: "Towel rail" },
+          { value: "Tumble dryer (commercial)", text: "Tumble dryer (commercial)" },
+          { value: "Tumble dryer (domestic)", text: "Tumble dryer (domestic)" },
+          { value: "Underlay", text: "Underlay" },
+          { value: "Video or DVD recorder or freeview box", text: "Video or DVD recorder or freeview box" },
+          { value: "Vinyl floor covering", text: "Vinyl floor covering" },
+          { value: "Wardrobe (double)", text: "Wardrobe (double)" },
+          { value: "Wardrobe (single)", text: "Wardrobe (single)" },
+          { value: "Wardrobe (fitted or with mirrored doors)", text: "Wardrobe (fitted or with mirrored doors)" },
+          { value: "Wash hand basin", text: "Wash hand basin" },
+          { value: "Washing machine (commercial)", text: "Washing machine (commercial)" },
+          { value: "Washing machine (domestic)", text: "Washing machine (domestic)" }
+        ]
+      }) }}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {{ govukInput({
+        label: {
+          text: "Quantity"
+        },
+        id: "bulky-item-1-qty",
+        name: "bulky-item-1-qty",
+        classes: "govuk-input--width-3",
+        inputmode: "numeric",
+        value: "1",
+        attributes: {
+          "data-st8-key": "purchase-bulky-item-1-qty"
+        }
+      }) }}
+    </div>
+  </div>
+</div>
+
+{{ govukButton({
+  text: "Add another item",
+  classes: "govuk-button--secondary govuk-!-margin-bottom-6"
+}) }}
+
+<br>
+
+{{ govukButton({
+  text: "Continue",
+  href: "/purchase/date"
+}) }}
+
+<script src="/assets/js/accessible-autocomplete.min.js"></script>
+<script>
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#bulky-item-1'),
+    showAllValues: true,
+    defaultValue: ''
+  });
+</script>

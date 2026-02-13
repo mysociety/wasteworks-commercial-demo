@@ -30,20 +30,31 @@ title: Purchase a one-off service
   },
   items: [
     {
-      text: "Replacement waste sacks (pack of 50)"
+      value: "sacks",
+      text: "Replacement waste sacks (pack of 50)",
+      attributes: {
+        "data-st8-key": "purchase-type"
+      }
     },
     {
-      text: "Bulky waste collection"
+      value: "bulky",
+      text: "Bulky waste collection",
+      attributes: {
+        "data-st8-key": "purchase-type"
+      }
     },
     {
-      text: "Business premises clearance"
+      text: "Business premises clearance",
+      disabled: true
     },
     {
-      text: "Skip hire"
+      text: "Skip hire",
+      disabled: true
     }
   ]
 }) }}
 
 {{ govukButton({
-  text: "Continue"
+  text: "Continue",
+  href: "/purchase/address"
 }) }}

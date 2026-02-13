@@ -1,0 +1,37 @@
+---
+layout: default.njk
+title: Collection date – One-off purchase
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  One-off purchase – Bulky waste collection
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">When should we collect?</h1>
+
+<p class="govuk-body readable">Choose a preferred collection date. We will do our best to accommodate your request, and will contact you if we need to arrange an alternative date.</p>
+
+{{ govukDateInput({
+  id: "purchase-collection-date",
+  namePrefix: "purchase-collection-date",
+  classes: "st8ify",
+  fieldset: {
+    legend: {
+      text: "Collection date",
+      classes: "govuk-fieldset__legend--m"
+    },
+    classes: "govuk-!-margin-top-6"
+  },
+  hint: {
+    text: "Collections are available Monday to Friday. For example, 21 4 2026."
+  }
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/purchase/wtn",
+  classes: "govuk-!-margin-top-6"
+}) }}

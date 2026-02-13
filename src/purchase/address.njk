@@ -1,0 +1,104 @@
+---
+layout: default.njk
+title: Address – One-off purchase
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  One-off purchase
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">
+  <span data-st8-key="purchase-type" data-st8-show-if-value="sacks">Delivery address</span>
+  <span data-st8-key="purchase-type" data-st8-show-if-value="bulky">Collection address</span>
+</h1>
+
+<p class="govuk-body readable">Confirm the address below, or update it if needed.</p>
+
+{% call govukFieldset({
+  classes: "govuk-!-width-one-half"
+}) %}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 1"
+    },
+    id: "purchase-address-line-1",
+    name: "purchase-address-line-1",
+    autocomplete: "address-line1",
+    attributes: {
+      "data-st8-key": "purchase-address-line-1"
+    },
+    value: "72 Guild Street"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 2 (optional)"
+    },
+    id: "purchase-address-line-2",
+    name: "purchase-address-line-2",
+    autocomplete: "address-line2",
+    attributes: {
+      "data-st8-key": "purchase-address-line-2"
+    }
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    id: "purchase-address-town",
+    name: "purchase-address-town",
+    classes: "govuk-!-width-two-thirds",
+    autocomplete: "address-level2",
+    attributes: {
+      "data-st8-key": "purchase-address-town"
+    },
+    value: "London"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "County (optional)"
+    },
+    id: "purchase-address-county",
+    name: "purchase-address-county",
+    classes: "govuk-!-width-two-thirds",
+    attributes: {
+      "data-st8-key": "purchase-address-county"
+    }
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    id: "purchase-address-postcode",
+    name: "purchase-address-postcode",
+    classes: "govuk-input--width-10",
+    autocomplete: "postal-code",
+    attributes: {
+      "data-st8-key": "purchase-address-postcode"
+    },
+    value: "SE23 6FH"
+  }) }}
+
+{% endcall %}
+
+<div data-st8-key="purchase-type" data-st8-show-if-value="sacks">
+  {{ govukButton({
+    text: "Continue",
+    href: "/purchase/wtn"
+  }) }}
+</div>
+
+<div data-st8-key="purchase-type" data-st8-show-if-value="bulky">
+  {{ govukButton({
+    text: "Continue",
+    href: "/purchase/bulky-items"
+  }) }}
+</div>
