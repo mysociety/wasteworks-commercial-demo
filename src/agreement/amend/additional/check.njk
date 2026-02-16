@@ -1,0 +1,73 @@
+---
+layout: default.njk
+title: Check your answers – Additional collection
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/agreement/amend/additional",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<span class="govuk-caption-l govuk-!-margin-bottom-3">
+  Agreement 0002041
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your answers before confirming</h1>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds govuk-!-margin-bottom-9",
+  rows: [
+    {
+      key: {
+        text: "Waste type"
+      },
+      value: {
+        text: "Food waste"
+      }
+    },
+    {
+      key: {
+        text: "Container"
+      },
+      value: {
+        html: '1 &times; 240 litre, green with brown lid'
+      }
+    },
+    {
+      key: {
+        text: "Requested collection date"
+      },
+      value: {
+        html: '<span class="js-additional-collection-date">—</span>'
+      },
+      actions: {
+        items: [
+          {
+            href: "/agreement/amend/additional",
+            text: "Change",
+            visuallyHiddenText: "collection date"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+{{ govukInsetText({
+  classes: "govuk-!-width-two-thirds",
+  html: '<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Additional charge</p>
+         <p class="govuk-heading-l govuk-!-margin-bottom-0 govuk-!-padding-top-2">£24.50</p>
+         <p class="govuk-body govuk-!-margin-top-2">This will be added to your next invoice.</p>'
+}) }}
+
+{{ govukButton({
+  text: "Confirm additional collection",
+  href: "/agreement/amend/additional/success",
+  classes: "js-confirm-additional"
+}) }}

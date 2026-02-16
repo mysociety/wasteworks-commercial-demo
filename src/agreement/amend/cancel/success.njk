@@ -1,0 +1,32 @@
+---
+layout: default.njk
+title: Collections cancelled – Amendment
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Collections cancelled",
+      html: "Agreement 0002041<br><strong>Food waste</strong>"
+    }) }}
+
+    <p class="govuk-body">We have sent you a confirmation email with a copy of this information.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p class="govuk-body">The selected collections have been removed from your schedule. A credit note of <strong>£24.50 per cancelled collection</strong> will be applied to your next invoice.</p>
+
+    <p class="govuk-body">If you need to reinstate any of these collections, please <a href="#" class="govuk-link">contact us</a>.</p>
+
+    {{ govukButton({
+      text: "View your upcoming collections",
+      classes: "govuk-button--secondary govuk-!-margin-top-5",
+      href: "/collections"
+    }) }}
+
+  </div>
+</div>

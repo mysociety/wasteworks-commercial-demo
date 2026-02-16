@@ -1,0 +1,92 @@
+---
+layout: default.njk
+title: Check your answers – Change containers
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/agreement/amend/containers",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<span class="govuk-caption-l govuk-!-margin-bottom-3">
+  Agreement 0002041
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your answers before confirming</h1>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds govuk-!-margin-bottom-3",
+  rows: [
+    {
+      key: {
+        text: "Waste type"
+      },
+      value: {
+        text: "Food waste"
+      }
+    },
+    {
+      key: {
+        text: "Container"
+      },
+      value: {
+        html: '240 litre, green with brown lid'
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-6">Container changes</h2>
+
+{{ govukTable({
+  classes: "govuk-table--align-middle govuk-!-width-two-thirds",
+  head: [
+    {
+      text: "Collection date"
+    },
+    {
+      text: "Containers"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Tuesday 21st April 2026"
+      },
+      {
+        html: '<span data-st8-key="containers-21-apr">1</span> &times; 240 litre'
+      }
+    ],
+    [
+      {
+        text: "Tuesday 28th April 2026"
+      },
+      {
+        html: '<span data-st8-key="containers-28-apr">1</span> &times; 240 litre'
+      }
+    ]
+  ]
+}) }}
+
+<p class="govuk-body govuk-!-width-two-thirds">
+  <a href="/agreement/amend/containers" class="govuk-link">Change number of containers</a>
+</p>
+
+{{ govukInsetText({
+  classes: "govuk-!-width-two-thirds",
+  html: '<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Additional charge</p>
+         <p class="govuk-heading-l govuk-!-margin-bottom-0 govuk-!-padding-top-2">£24.50</p>
+         <p class="govuk-body govuk-!-margin-top-2">Any additional charges or credits will be applied to your next invoice.</p>'
+}) }}
+
+{{ govukButton({
+  text: "Confirm changes",
+  href: "/agreement/amend/containers/success"
+}) }}

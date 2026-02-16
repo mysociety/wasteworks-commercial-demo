@@ -122,7 +122,21 @@ var dateFormat = function dateFormat(y, m, d) {
     return '' + d + ordinal(d) + ' ' + month(m) + ' ' + y;
 }
 
-$.each(['start-date', 'first-collection-date', 'purchase-collection-date'], function(i, id){
+// Amendment type continue button – navigates to the correct sub-flow
+$('.js-amend-continue').on('click', function(e){
+    e.preventDefault();
+    var amendType = stateful.getState('amend-type');
+    var routes = {
+        'cancel': '/agreement/amend/cancel',
+        'additional': '/agreement/amend/additional',
+        'containers': '/agreement/amend/containers'
+    };
+    if (routes[amendType]) {
+        window.location.href = routes[amendType];
+    }
+});
+
+$.each(['start-date', 'first-collection-date', 'purchase-collection-date', 'additional-collection-date'], function(i, id){
     $('.js-' + id).each(function(){
         var y = stateful.getState(id + '-year');
         var m = stateful.getState(id + '-month');

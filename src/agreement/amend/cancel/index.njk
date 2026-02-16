@@ -1,0 +1,86 @@
+---
+layout: default.njk
+title: Cancel upcoming collections – Amendment
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/agreement/amend",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<span class="govuk-caption-l govuk-!-margin-bottom-3">
+  Agreement 0002041
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Cancel upcoming collections</h1>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds govuk-!-margin-bottom-9",
+  rows: [
+    {
+      key: {
+        text: "Waste type"
+      },
+      value: {
+        text: "Food waste"
+      }
+    },
+    {
+      key: {
+        text: "Container"
+      },
+      value: {
+        html: '1 &times; 240 litre, green with brown lid'
+      }
+    },
+    {
+      key: {
+        text: "Schedule"
+      },
+      value: {
+        text: "Every week, on Tuesday"
+      }
+    }
+  ]
+}) }}
+
+{{ govukCheckboxes({
+  name: "cancel-collections",
+  classes: "govuk-!-margin-bottom-6",
+  fieldset: {
+    legend: {
+      text: "Which collections do you want to cancel?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "21-apr",
+      text: "Tuesday 21st April 2026",
+      attributes: {
+        "data-st8-key": "cancel-21-apr"
+      }
+    },
+    {
+      value: "28-apr",
+      text: "Tuesday 28th April 2026",
+      attributes: {
+        "data-st8-key": "cancel-28-apr"
+      }
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/agreement/amend/cancel/check"
+}) }}

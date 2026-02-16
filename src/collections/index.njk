@@ -206,10 +206,10 @@ title: Collection calendar
       text: "Type"
     },
     {
-      text: "Frequency"
+      text: "Reference"
     },
     {
-      text: "Reference"
+      text: "Status"
     },
     {
       text: ""
@@ -228,17 +228,31 @@ title: Collection calendar
         text: "Food waste"
       },
       {
-        text: "Every Tuesday"
-      },
-      {
         html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
       },
       {
-        html: govukButton({
+        html: govukTag({
+          text: "Cancelled",
+          classes: "govuk-tag--red",
+          attributes: {
+            "data-st8-key": "cancel-21-apr",
+            "data-st8-show-if-set": true
+          }
+        }) + ' ' + govukTag({
+          text: "Scheduled",
+          classes: "govuk-tag--green",
+          attributes: {
+            "data-st8-key": "cancel-21-apr",
+            "data-st8-hide-if-set": true
+          }
+        })
+      },
+      {
+        html: '<span data-st8-key="cancel-21-apr" data-st8-hide-if-set>' + govukButton({
           text: "Reschedule",
           href: "/agreement/amend",
           classes: "govuk-button--secondary govuk-button--small govuk-!-margin-bottom-0"
-        })
+        }) + '</span>'
       }
     ],
     [
@@ -253,10 +267,13 @@ title: Collection calendar
         text: "General waste"
       },
       {
-        text: "Every Thursday"
+        html: '0002063'
       },
       {
-        html: '0002063'
+        html: govukTag({
+          text: "Scheduled",
+          classes: "govuk-tag--green"
+        })
       },
       {
         html: govukButton({
@@ -278,17 +295,31 @@ title: Collection calendar
         text: "Food waste"
       },
       {
-        text: "Every Tuesday"
-      },
-      {
         html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
       },
       {
-        html: govukButton({
+        html: govukTag({
+          text: "Cancelled",
+          classes: "govuk-tag--red",
+          attributes: {
+            "data-st8-key": "cancel-28-apr",
+            "data-st8-show-if-set": true
+          }
+        }) + ' ' + govukTag({
+          text: "Scheduled",
+          classes: "govuk-tag--green",
+          attributes: {
+            "data-st8-key": "cancel-28-apr",
+            "data-st8-hide-if-set": true
+          }
+        })
+      },
+      {
+        html: '<span data-st8-key="cancel-28-apr" data-st8-hide-if-set>' + govukButton({
           text: "Reschedule",
           href: "/agreement/amend",
           classes: "govuk-button--secondary govuk-button--small govuk-!-margin-bottom-0"
-        })
+        }) + '</span>'
       }
     ],
     [
@@ -303,10 +334,13 @@ title: Collection calendar
         text: "General waste"
       },
       {
-        text: "Every Thursday"
+        html: '0002063'
       },
       {
-        html: '0002063'
+        html: govukTag({
+          text: "Scheduled",
+          classes: "govuk-tag--green"
+        })
       },
       {
         html: govukButton({
@@ -318,3 +352,58 @@ title: Collection calendar
     ]
   ]
 }) }}
+
+<div data-st8-key="additional-collection-date-day" data-st8-show-if-set>
+{{ govukTable({
+  classes: "govuk-table--align-middle govuk-table--with-action-column govuk-!-margin-top-9",
+  caption: "Additional collections",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Type"
+    },
+    {
+      text: "Reference"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: ""
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<span class="js-additional-collection-date">—</span>'
+      },
+      {
+        html: '<img src="/assets/img/bin-green-brown-lid@2x.png" width="800" height="800" alt="" style="max-width: 2rem;">',
+        classes: "width-0"
+      },
+      {
+        text: "Food waste"
+      },
+      {
+        html: '<a href="/agreement/view/0002041" class="govuk-link">0002041</a>'
+      },
+      {
+        html: govukTag({
+          text: "Additional",
+          classes: "govuk-tag--blue"
+        })
+      },
+      {
+        text: ""
+      }
+    ]
+  ]
+}) }}
+</div>

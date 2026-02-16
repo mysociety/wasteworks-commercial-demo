@@ -1,0 +1,74 @@
+---
+layout: default.njk
+title: Check your answers – Cancel collections
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/agreement/amend/cancel",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<span class="govuk-caption-l govuk-!-margin-bottom-3">
+  Agreement 0002041
+</span>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your answers before confirming</h1>
+
+{{ govukSummaryList({
+  classes: "govuk-!-width-two-thirds govuk-!-margin-bottom-3",
+  rows: [
+    {
+      key: {
+        text: "Waste type"
+      },
+      value: {
+        text: "Food waste"
+      }
+    },
+    {
+      key: {
+        text: "Container"
+      },
+      value: {
+        html: '1 &times; 240 litre, green with brown lid'
+      }
+    },
+    {
+      key: {
+        text: "Cancel collections"
+      },
+      value: {
+        html: '<div data-st8-key="cancel-21-apr" data-st8-show-if-set>Tuesday 21st April 2026</div>' +
+              '<div data-st8-key="cancel-28-apr" data-st8-show-if-set>Tuesday 28th April 2026</div>'
+      },
+      actions: {
+        items: [
+          {
+            href: "/agreement/amend/cancel",
+            text: "Change",
+            visuallyHiddenText: "which collections to cancel"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+{{ govukInsetText({
+  classes: "govuk-!-width-two-thirds",
+  html: '<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Credit note</p>
+         <p class="govuk-heading-l govuk-!-margin-bottom-0 govuk-!-padding-top-2">£24.50 <span class="govuk-body">per cancelled collection</span></p>
+         <p class="govuk-body govuk-!-margin-top-2">This will be applied to your next invoice.</p>'
+}) }}
+
+{{ govukButton({
+  text: "Confirm cancellations",
+  href: "/agreement/amend/cancel/success",
+  classes: "js-confirm-cancel"
+}) }}
