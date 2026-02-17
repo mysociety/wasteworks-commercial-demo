@@ -1,0 +1,36 @@
+---
+layout: default.njk
+title: Problem reported
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Problem report submitted",
+      html: "Your reference number<br><strong>RPT-4471-A</strong>"
+    }) }}
+
+    <p class="govuk-body">We have sent you a confirmation email.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p class="govuk-body">
+      We will review your report and aim to respond within <strong>5 working days</strong>.
+    </p>
+
+    <p class="govuk-body">
+      You can track the progress of your report on the <a href="/help" class="govuk-link">Help</a> page.
+    </p>
+
+    {{ govukButton({
+      text: "Back to containers",
+      classes: "govuk-button--secondary govuk-!-margin-top-5",
+      href: "/containers"
+    }) }}
+
+  </div>
+</div>

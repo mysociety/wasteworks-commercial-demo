@@ -8,6 +8,7 @@ title: Dashboard
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/tabs/macro.njk" import govukTabs %}
 {% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "card.njk" import card %}
 
 <h1 class="govuk-heading-l govuk-!-margin-bottom-6">Business waste dashboard</h1>
 
@@ -44,18 +45,21 @@ title: Dashboard
 <h2 class="govuk-heading-m">Quick actions</h2>
 
 <div class="quick-actions govuk-!-margin-bottom-9">
-    <div class="card">
-        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/collections" class="card__stretched-link govuk-link">Collection calendar</a></h3>
-        <p class="card__body govuk-body">Check your collection schedule or report a missed collection</p>
-    </div>
-    <div class="card">
-        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/purchase" class="card__stretched-link govuk-link">One-off services</a></h3>
-        <p class="card__body govuk-body">Order replacement sacks, skips, or bulky collections</p>
-    </div>
-    <div class="card">
-        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-2"><a href="/containers" class="card__stretched-link govuk-link">Container maintenance</a></h3>
-        <p class="card__body govuk-body">Tell us if your containers have been damaged or need servicing</p>
-    </div>
+    {{ card({
+      title: "Collection calendar",
+      href: "/collections",
+      description: "Check your collection schedule or report a missed collection"
+    }) }}
+    {{ card({
+      title: "One-off services",
+      href: "/purchase",
+      description: "Order replacement sacks, skips, or bulky collections"
+    }) }}
+    {{ card({
+      title: "Container maintenance",
+      href: "/containers",
+      description: "Tell us if your containers have been damaged or need servicing"
+    }) }}
 </div>
 
 <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Waste collection agreements</h2>
@@ -262,3 +266,34 @@ title: Dashboard
     href: "/agreement/new/choose-premises"
   }) }}
 </div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-6">Business waste tips</h2>
+
+<div class="quick-actions govuk-!-margin-bottom-6">
+  {{ card({
+    title: "Recycling guide for businesses",
+    href: "#",
+    image: "/assets/img/white-containers.jpg",
+    description: "Learn which materials go in which bin, and how to avoid contamination charges."
+  }) }}
+  {{ card({
+    title: "Preparing for collection day",
+    href: "#",
+    image: "/assets/img/sorting-waste.jpg",
+    description: "Make sure your containers are presented correctly and on time to avoid missed collections."
+  }) }}
+  {{ card({
+    title: "One-off collections and skip hire",
+    href: "#",
+    image: "/assets/img/skip.jpg",
+    description: "Need a one-off bulky waste collection or skip? Find out about our additional services."
+  }) }}
+</div>
+
+{{ govukButton({
+  text: "More help and guidance",
+  classes: "govuk-button--secondary",
+  href: "/help"
+}) }}

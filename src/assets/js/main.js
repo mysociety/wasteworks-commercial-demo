@@ -189,3 +189,25 @@ $('.govuk-service-navigation a[href*="/sign-in"]').on('click', function(){
 $('.js-report-missed').on('click', function(){
     stateful.updateState('collection-missed', 'true');
 });
+
+$('.js-container-problem-continue').on('click', function(e){
+    var selected = $('input[name="problem-type"]:checked').val();
+    if (selected) {
+        stateful.updateState('container-problem-type', selected);
+    }
+});
+
+$('.js-container-problem-type').each(function(){
+    var problemType = stateful.getState('container-problem-type');
+    if (problemType) {
+        $(this).text(problemType);
+    }
+});
+
+$('.js-report-container-problem').on('click', function(){
+    stateful.updateState('container-problem-reported', 'true');
+});
+
+$('.js-close-missed-collection').on('click', function(){
+    stateful.updateState('collection-missed'); // removes the state
+});

@@ -1,0 +1,57 @@
+---
+layout: default.njk
+title: Report a problem – Details
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/containers/report",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<h1 class="govuk-heading-l">Describe the problem</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body">
+      Problem type: <strong class="js-container-problem-type">Container damaged</strong>
+    </p>
+
+    {{ govukTextarea({
+      label: {
+        text: "Please provide more details about the problem",
+        classes: "govuk-label--s"
+      },
+      hint: {
+        text: "For example, describe the type of damage, location of graffiti, or any other relevant information."
+      },
+      id: "problem-description",
+      name: "problem-description"
+    }) }}
+
+    {{ govukFileUpload({
+      label: {
+        text: "Upload a photo (optional)",
+        classes: "govuk-label--s"
+      },
+      hint: {
+        text: "Upload a photo showing the problem. JPG, PNG, or GIF files up to 10MB."
+      },
+      id: "problem-photo",
+      name: "problem-photo"
+    }) }}
+
+    {{ govukButton({
+      text: "Submit report",
+      href: "/containers/report/success",
+      classes: "govuk-!-margin-top-4 js-report-container-problem"
+    }) }}
+
+  </div>
+</div>

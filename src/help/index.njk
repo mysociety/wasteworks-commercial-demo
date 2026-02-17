@@ -1,0 +1,148 @@
+---
+layout: default.njk
+title: Help
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "card.njk" import card %}
+
+<h1 class="govuk-heading-l">Help</h1>
+
+<h2 class="govuk-heading-m">Your requests</h2>
+
+<div data-st8-key="container-problem-reported" data-st8-show-if-set>
+  <div class="card govuk-!-margin-bottom-4">
+    <div style="display: flex; justify-content: space-between; align-items: start; gap: 1rem;">
+      <div>
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-1">
+          <a href="/help/container-report" class="card__stretched-link govuk-link">Container problem report</a>
+        </h3>
+        <p class="govuk-body-s govuk-!-margin-bottom-1">
+          Ref: <strong>RPT-4471-A</strong> &middot; 1100 litre Euro bin, blue with green lid &middot; Café Candide
+        </p>
+        <p class="govuk-body-s govuk-!-margin-bottom-0 govuk-hint">Submitted today</p>
+      </div>
+      {{ govukTag({
+        text: "Open",
+        classes: "govuk-tag--blue"
+      }) }}
+    </div>
+  </div>
+</div>
+
+<div data-st8-key="collection-missed" data-st8-show-if-set>
+  <div class="card govuk-!-margin-bottom-4">
+    <div style="display: flex; justify-content: space-between; align-items: start; gap: 1rem;">
+      <div>
+        <h3 class="card__title govuk-heading-s govuk-!-margin-bottom-1">
+          <a href="/help/missed-collection" class="card__stretched-link govuk-link">Missed collection report</a>
+        </h3>
+        <p class="govuk-body-s govuk-!-margin-bottom-1">
+          Ref: <strong>HDJ2123F-003</strong> &middot; General waste &middot; Café Candide, 72 Guild Street
+        </p>
+        <p class="govuk-body-s govuk-!-margin-bottom-0 govuk-hint">Submitted today</p>
+      </div>
+      {{ govukTag({
+        text: "Open",
+        classes: "govuk-tag--blue"
+      }) }}
+    </div>
+  </div>
+</div>
+
+<div data-st8-key="container-problem-reported" data-st8-hide-if-set>
+  <div data-st8-key="collection-missed" data-st8-hide-if-set>
+    <p class="govuk-body govuk-hint govuk-!-margin-bottom-0">You have no open requests.</p>
+  </div>
+</div>
+
+<div class="button-bar govuk-!-margin-top-6">
+  {{ govukButton({
+    text: "Report a problem with a container",
+    href: "/containers",
+    classes: "govuk-button--secondary govuk-!-margin-bottom-0"
+  }) }}
+  {{ govukButton({
+    text: "Report a missed collection",
+    href: "/collections",
+    classes: "govuk-button--warning govuk-!-margin-bottom-0"
+  }) }}
+</div>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<h2 class="govuk-heading-m">Frequently asked questions</h2>
+
+<ul class="govuk-list govuk-list--spaced">
+  <li>
+    <a href="#" class="govuk-link">What can I put in my recycling bin?</a>
+  </li>
+  <li>
+    <a href="#" class="govuk-link">When are my collections?</a>
+  </li>
+  <li>
+    <a href="#" class="govuk-link">What happens if I put the wrong waste in a container?</a>
+  </li>
+  <li>
+    <a href="#" class="govuk-link">How do I change my collection day?</a>
+  </li>
+  <li>
+    <a href="#" class="govuk-link">How do I add another premises to my account?</a>
+  </li>
+  <li>
+    <a href="#" class="govuk-link">What do I do if my container is stolen?</a>
+  </li>
+  <li>
+    <a href="#" class="govuk-link">How do I cancel my collection agreement?</a>
+  </li>
+  <li>
+    <a href="#" class="govuk-link">How can I reduce my waste disposal costs?</a>
+  </li>
+</ul>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-6">Guides and tips</h2>
+
+<div class="quick-actions govuk-!-margin-bottom-6">
+  {{ card({
+    title: "Recycling guide for businesses",
+    href: "#",
+    image: "/assets/img/white-containers.jpg",
+    description: "Learn which materials go in which bin, and how to avoid contamination charges."
+  }) }}
+  {{ card({
+    title: "Preparing for collection day",
+    href: "#",
+    image: "/assets/img/sorting-waste.jpg",
+    description: "Make sure your containers are presented correctly and on time to avoid missed collections."
+  }) }}
+  {{ card({
+    title: "Managing your containers",
+    href: "#",
+    image: "/assets/img/wheelie-bins.jpg",
+    description: "Tips on keeping containers clean, secure, and accessible for collectors."
+  }) }}
+</div>
+
+<div class="quick-actions govuk-!-margin-bottom-9">
+  {{ card({
+    title: "Reduce your waste costs",
+    href: "#",
+    image: "/assets/img/reduce-reuse-recycle.jpg",
+    description: "Simple changes that could save your business money on waste collection services."
+  }) }}
+  {{ card({
+    title: "One-off collections and skip hire",
+    href: "#",
+    image: "/assets/img/skip.jpg",
+    description: "Need a one-off bulky waste collection or skip? Find out about our additional services."
+  }) }}
+  {{ card({
+    title: "Container cleansing service",
+    href: "#",
+    image: "/assets/img/orange-euro-bin.jpg",
+    description: "Keep your bins hygienic with our professional container cleansing service, available on demand."
+  }) }}
+</div>

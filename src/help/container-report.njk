@@ -1,0 +1,84 @@
+---
+layout: default.njk
+title: Container problem report – RPT-4471-A
+---
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+{{ govukBackLink({
+  text: "Back to Help",
+  href: "/help",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Container problem report
+    </h1>
+
+    <p class="govuk-body govuk-hint">
+      {{ govukTag({
+        text: "Open",
+        classes: "govuk-tag--blue govuk-!-margin-right-2"
+      }) }}
+      Reference: RPT-4471-A
+    </p>
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-top-6 govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Container"
+          },
+          value: {
+            text: "1100 litre (Euro bin), blue with green lid"
+          }
+        },
+        {
+          key: {
+            text: "Location"
+          },
+          value: {
+            text: "Café Candide, 72 Guild Street"
+          }
+        }
+      ]
+    }) }}
+
+    <div class="thread">
+      <div class="thread__message thread__message--user">
+        <div class="thread__meta">
+          <strong>You</strong> &middot; Today
+        </div>
+        <div class="thread__body">
+          <p class="govuk-body">
+            Reported problem: <strong class="js-container-problem-type">Container damaged</strong>
+          </p>
+          <p class="govuk-body">
+            The lid is cracked and doesn't close properly. Rainwater is getting inside and contaminating the recycling.
+          </p>
+        </div>
+      </div>
+
+      <div class="thread__message thread__message--authority">
+        <div class="thread__meta">
+          <strong>Demo Authority</strong> &middot; Today
+        </div>
+        <div class="thread__body">
+          <p class="govuk-body">
+            Thank you for reporting this problem. We have logged your report and will arrange for an inspector to visit within 5 working days.
+          </p>
+          <p class="govuk-body">
+            If the container is unusable before then, please contact us on <strong>020 7946 0958</strong> and we will arrange an emergency replacement.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

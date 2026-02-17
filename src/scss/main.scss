@@ -34,7 +34,7 @@ $govuk-page-width: 1100px;
 }
 
 // Pretty hacky rules here, to add space before account-related nav items.
-.govuk-service-navigation__item:has(a[href*="/account"]),
+.govuk-service-navigation__item:has(a[href*="/help"]),
 .nav-staff .govuk-service-navigation__item:last-child {
   margin-left: auto;
 }
@@ -95,4 +95,25 @@ img {
 .autocomplete__input,
 .autocomplete__menu {
   @include govuk-font($size: 19);
+}
+
+.thread__message {
+  padding: govuk-spacing(4);
+  margin-bottom: govuk-spacing(6);
+  border-left: 4px solid govuk-colour("mid-grey");
+  background: govuk-colour("light-grey");
+
+  &--authority {
+    border-left-color: $color-societyworks-green;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.thread__meta {
+  @include govuk-font($size: 16);
+  color: $govuk-secondary-text-colour;
+  margin-bottom: govuk-spacing(2);
 }

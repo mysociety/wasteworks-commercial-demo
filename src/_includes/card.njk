@@ -1,0 +1,15 @@
+{% macro card(params) %}
+<div class="card">
+  {% if params.image %}
+    <img class="card__image" src="{{ params.image }}" alt="{{ params.imageAlt }}">
+  {% endif %}
+    <h{{ params.headingLevel | default('3') }} class="card__title govuk-heading-s">
+      {% if params.href %}
+        <a href="{{ params.href }}" class="card__stretched-link govuk-link">{{ params.title }}</a>
+      {% else %}
+        {{ params.title }}
+      {% endif %}
+    </h{{ params.headingLevel | default('3') }}>
+    <p class="card__body govuk-body">{{ params.description }}</p>
+</div>
+{% endmacro %}

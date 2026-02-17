@@ -51,20 +51,26 @@ title: Report a problem
   },
   items: [
     {
-      text: "Container damaged"
+      text: "Container damaged",
+      value: "Container damaged"
     },
     {
-      text: "Graffiti"
+      text: "Graffiti",
+      value: "Graffiti"
     },
     {
-      text: "Cleansing required"
+      text: "Cleansing required",
+      value: "Cleansing required"
     },
     {
-      text: "Other"
+      text: "Other",
+      value: "Other"
     }
   ]
 }) }}
 
 {{ govukButton({
-  text: "Continue"
+  text: "Continue",
+  href: "/containers/report/details",
+  classes: "js-container-problem-continue"
 }) }}

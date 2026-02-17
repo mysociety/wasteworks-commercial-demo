@@ -1,0 +1,104 @@
+---
+layout: default.njk
+title: Missed collection report – HDJ2123F-003
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+{{ govukBackLink({
+  text: "Back to Help",
+  href: "/help",
+  classes: "govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Missed collection report
+    </h1>
+
+    <p class="govuk-body govuk-hint">
+      {{ govukTag({
+        text: "Open",
+        classes: "govuk-tag--blue govuk-!-margin-right-2"
+      }) }}
+      Reference: HDJ2123F-003
+    </p>
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-top-6 govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Location"
+          },
+          value: {
+            html: "Café Candide<br>72 Guild Street<br>London<br>SE23 6FH"
+          }
+        },
+        {
+          key: {
+            text: "Waste type"
+          },
+          value: {
+            text: "General waste"
+          }
+        },
+        {
+          key: {
+            text: "Container"
+          },
+          value: {
+            text: "1100 litre (Euro bin), grey with black lid"
+          }
+        },
+        {
+          key: {
+            text: "Collection point"
+          },
+          value: {
+            text: "Alleyway beside car park"
+          }
+        }
+      ]
+    }) }}
+
+    <div class="thread">
+      <div class="thread__message thread__message--user">
+        <div class="thread__meta">
+          <strong>You</strong> &middot; Today
+        </div>
+        <div class="thread__body">
+          <p class="govuk-body">
+            Reported a missed collection for general waste. The container was presented before 8am at the agreed collection point. The container was not overflowing.
+          </p>
+        </div>
+      </div>
+
+      <div class="thread__message thread__message--authority">
+        <div class="thread__meta">
+          <strong>Demo Authority</strong> &middot; Today
+        </div>
+        <div class="thread__body">
+          <p class="govuk-body">
+            Thank you for reporting a missed collection. We will check our crew records to investigate why your container might have been missed.
+          </p>
+          <p class="govuk-body">
+            We aim to respond within <strong>2 working days</strong>. If we are able to confirm your collection was missed due to crew error, we will arrange for a free additional collection the next day.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {{ govukButton({
+      text: "Close report",
+      href: "/help",
+      classes: "js-close-missed-collection"
+    }) }}
+
+  </div>
+</div>
