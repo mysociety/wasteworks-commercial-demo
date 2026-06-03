@@ -4,67 +4,96 @@ title: Business details – Request an account
 ---
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
 
 <span class="govuk-caption-m govuk-!-margin-bottom-3">
   Request a business waste account
 </span>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-6">Business details</h1>
+{% call govukFieldset({
+  legend: {
+    text: "Business details",
+    classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6",
+    isPageHeading: true
+  },
+  classes: "govuk-!-width-one-half"
+}) %}
 
-<h2 class="govuk-heading-m">Is this the right business?</h2>
-
-{{ govukSummaryList({
-  classes: "govuk-!-margin-bottom-9 govuk-!-width-two-thirds",
-  rows: [
-    {
-      key: {
-        text: "Registration number"
-      },
-      value: {
-        html: '<span data-st8-key="business-id">90636040</span>'
-      }
+  {{ govukInput({
+    label: {
+      text: "Registered business name"
     },
-    {
-      key: {
-        text: "Registered name"
-      },
-      value: {
-        html: '<span data-st8-key="business-name">Café Candide Ltd</span>'
-      }
-    },
-    {
-      key: {
-        text: "Registered address"
-      },
-      value: {
-        html: '<div data-st8-key="business-address-line-1">72 Guild Street</div>' + 
-              '<div data-st8-key="business-address-line-2"></div>' + 
-              '<div data-st8-key="business-address-town">London</div>' + 
-              '<div data-st8-key="business-address-county"></div>' + 
-              '<div data-st8-key="business-postcode">SE23 6FH</div>'
-      }
-    },
-    {
-      key: {
-        text: "Type (SIC)"
-      },
-      value: {
-        html: '<span data-st8-key="business-type">56102 Unlicensed restaurants and cafes</span>'
-      }
+    id: "business-name",
+    name: "business-name",
+    autocomplete: "organization",
+    attributes: {
+      "data-st8-key": "business-name"
     }
-  ]
-}) }}
+  }) }}
 
-<div class="button-bar">
-  {{ govukButton({
-    text: "Yes, continue",
-    href: "/register/business-employees"
+  {{ govukSelect({
+    label: {
+      text: "Business type (SIC code)"
+    },
+    id: "business-type",
+    name: "business-type",
+    attributes: {
+      "data-st8-key": "business-type"
+    },
+    items: [
+      { value: "", text: "Select a business type" },
+      { value: "47110 Supermarkets and general merchandise stores", text: "47110 Supermarkets and general merchandise stores" },
+      { value: "47190 Other retail sale in non-specialised stores", text: "47190 Other retail sale in non-specialised stores" },
+      { value: "47710 Retail sale of clothing in specialised stores", text: "47710 Retail sale of clothing in specialised stores" },
+      { value: "47730 Dispensing chemist in specialised stores", text: "47730 Dispensing chemist in specialised stores" },
+      { value: "55100 Hotels and similar accommodation", text: "55100 Hotels and similar accommodation" },
+      { value: "55201 Holiday centres and villages", text: "55201 Holiday centres and villages" },
+      { value: "56101 Licensed restaurants", text: "56101 Licensed restaurants" },
+      { value: "56102 Unlicensed restaurants and cafes", text: "56102 Unlicensed restaurants and cafes", selected: true },
+      { value: "56103 Take-away food shops and mobile food stands", text: "56103 Take-away food shops and mobile food stands" },
+      { value: "56210 Event catering activities", text: "56210 Event catering activities" },
+      { value: "56290 Other food service activities", text: "56290 Other food service activities" },
+      { value: "56301 Licensed clubs", text: "56301 Licensed clubs" },
+      { value: "56302 Public houses and bars", text: "56302 Public houses and bars" },
+      { value: "62011 Ready-made interactive leisure and entertainment software development", text: "62011 Ready-made interactive leisure and entertainment software development" },
+      { value: "62012 Business and domestic software development", text: "62012 Business and domestic software development" },
+      { value: "69101 Barristers at law", text: "69101 Barristers at law" },
+      { value: "69102 Solicitors", text: "69102 Solicitors" },
+      { value: "71111 Architectural activities", text: "71111 Architectural activities" },
+      { value: "82110 Combined office administrative service activities", text: "82110 Combined office administrative service activities" },
+      { value: "85100 Pre-primary education", text: "85100 Pre-primary education" },
+      { value: "86101 Hospital activities", text: "86101 Hospital activities" },
+      { value: "86210 General medical practice activities", text: "86210 General medical practice activities" },
+      { value: "86220 Specialist medical practice activities", text: "86220 Specialist medical practice activities" },
+      { value: "96010 Washing and dry-cleaning of textile and fur products", text: "96010 Washing and dry-cleaning of textile and fur products" },
+      { value: "96020 Hairdressing and other beauty treatment", text: "96020 Hairdressing and other beauty treatment" }
+    ]
   }) }}
-  {{ govukButton({
-    text: "No, go back",
-    href: "/register/business-id",
-    classes: "govuk-button--secondary"
+
+  {{ govukInput({
+    label: {
+      text: "Number of employees"
+    },
+    id: "business-employees",
+    name: "business-employees",
+    classes: "govuk-input--width-5",
+    inputmode: "numeric",
+    attributes: {
+      "data-st8-key": "business-employees"
+    }
   }) }}
-</div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="business-postcode">Registered business postcode</label>
+    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+      <input class="govuk-input govuk-input--width-10" id="business-postcode" name="business-postcode" type="text" autocomplete="postal-code" data-st8-key="business-postcode">
+      {{ govukButton({
+        text: "Search",
+        href: "/register/business-address"
+      }) }}
+    </div>
+  </div>
+
+{% endcall %}

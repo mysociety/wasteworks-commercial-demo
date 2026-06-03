@@ -10,7 +10,6 @@ var scenarios = {
         "user-phone": "07700 900457",
         "user-email": "sarah.phillips@example.com",
         "business-name": "Café Candide",
-        "business-id": "90636040",
         "business-type": "56102 Unlicensed restaurants and cafes",
         "business-address-line-1": "483 Green Lanes",
         "business-address-line-2": "", 
