@@ -1,0 +1,33 @@
+---
+layout: default.njk
+title: Verify your email address – Request an account
+---
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+<span class="govuk-caption-m govuk-!-margin-bottom-3">
+  Request a business waste account
+</span>
+
+<h1 class="govuk-heading-l">Verify your email address</h1>
+
+<div class="govuk-body govuk-!-width-one-half">
+  <p class="govuk-body">We’ve sent a verification link to your email address. Click the link in the email, or enter the code from the email below.</p>
+</div>
+
+{{ govukInput({
+  label: {
+    text: "Verification code"
+  },
+  classes: "govuk-input--width-10",
+  id: "verification-code",
+  name: "verification-code",
+  autocomplete: "one-time-code",
+  spellcheck: false
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/agreement/new/choose-premises"
+}) }}
